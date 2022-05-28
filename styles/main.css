@@ -1,0 +1,3956 @@
+@import url(../node_modules/bootstrap-icons/font/bootstrap-icons.css);
+@font-face {
+  font-family: "Dancing";
+  src: url("../font/Hand-writing/DancingScript-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: "Poiret";
+  src: url("../font/Display/PoiretOne-Regular.ttf");
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: rgb(27, 27, 27);
+  text-decoration: none;
+  list-style: none;
+  font-family: ArimaR;
+  font-size: 16px;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  transition: all 1s ease;
+  border: 0;
+  outline: 0;
+  font-family: Poiret;
+}
+*::-webkit-scrollbar {
+  width: 1px;
+  background-color: #000000;
+  border-radius: 50px;
+  scroll-behavior: smooth;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #9e9e9e;
+  border-radius: 50px;
+  height: 10px;
+  width: 10px;
+}
+* h1,
+* h2,
+* h3 {
+  font-family: Dancing;
+  color: rgb(250, 235, 215);
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+}
+body .container {
+  height: 100vh;
+  overflow-y: scroll;
+  -ms-scroll-snap-type: y mandatory;
+      scroll-snap-type: y mandatory;
+}
+
+header {
+  position: relative;
+  scroll-snap-align: start;
+  background: url(../image/light-bg.webp) center center/cover no-repeat;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+  background-attachment: fixed;
+}
+header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+  -webkit-animation: homeAnimationBg 2s 1s forwards;
+          animation: homeAnimationBg 2s 1s forwards;
+}
+@-webkit-keyframes homeAnimationBg {
+  0% {
+    background: transparent;
+  }
+  100% {
+    background: rgba(0, 0, 0, 0.8);
+  }
+}
+@keyframes homeAnimationBg {
+  0% {
+    background: transparent;
+  }
+  100% {
+    background: rgba(0, 0, 0, 0.8);
+  }
+}
+header .logo img {
+  position: relative;
+  background-position: center center;
+  background-size: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 500px;
+  z-index: 2;
+  opacity: 0;
+  -webkit-animation: logoAnimation 3s 2.5s forwards;
+          animation: logoAnimation 3s 2.5s forwards;
+}
+@-webkit-keyframes logoAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes logoAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+nav {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: start;
+  background: url(../image/dark-bg.webp) center center/cover no-repeat;
+  background-attachment: fixed;
+  z-index: 2;
+}
+nav::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+  -webkit-animation: navAnimationBg 2s 2s forwards;
+          animation: navAnimationBg 2s 2s forwards;
+}
+@-webkit-keyframes navAnimationBg {
+  0% {
+    background: transparent;
+  }
+  100% {
+    background: rgba(0, 0, 0, 0.3);
+  }
+}
+@keyframes navAnimationBg {
+  0% {
+    background: transparent;
+  }
+  100% {
+    background: rgba(0, 0, 0, 0.3);
+  }
+}
+nav .menuMessages {
+  position: absolute;
+  top: 50px;
+  background-color: rgb(250, 235, 215);
+  color: rgb(27, 27, 27);
+  padding: 1rem;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  z-index: 2;
+  transition: opacity 1s ease;
+  opacity: 0;
+  text-align: center;
+}
+nav .menu {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  z-index: 10;
+  overflow: hidden;
+}
+nav .menu li {
+  position: absolute;
+  left: 0;
+  transform-origin: 200px;
+  transition-delay: calc(0.1s * var(--i));
+  transform: rotate(0deg) translateX(150px);
+  overflow: hidden;
+}
+nav .menu .toggle {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: rgb(250, 235, 215);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 1.5s;
+}
+nav .menu .toggle i {
+  font-size: 3rem;
+}
+nav .menu .toggle i:hover {
+  color: rgb(168, 0, 64);
+}
+nav .menu.active .toggle {
+  transform: rotate(315deg);
+}
+nav .menu.active li {
+  transform: rotate(calc(60deg * var(--i)));
+}
+nav .menu li a {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(250, 235, 215);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin: 1rem;
+  transform: rotate(calc(-60deg * var(--i)));
+}
+nav .menu li a i {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: rgb(27, 27, 27);
+}
+nav .menu li a i:hover {
+  color: rgb(168, 0, 64);
+}
+
+#about {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  scroll-snap-align: start;
+  background: url(../image/about\ .webp) center center/cover no-repeat;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-attachment: fixed;
+  z-index: 0;
+}
+#about::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+  -webkit-animation: aboutAnimationBg 2s 2s forwards;
+          animation: aboutAnimationBg 2s 2s forwards;
+}
+@-webkit-keyframes aboutAnimationBg {
+  0% {
+    background: transparent;
+  }
+  100% {
+    background: rgba(0, 0, 0, 0.3);
+  }
+}
+@keyframes aboutAnimationBg {
+  0% {
+    background: transparent;
+  }
+  100% {
+    background: rgba(0, 0, 0, 0.3);
+  }
+}
+#about .back-to-menu i {
+  position: absolute;
+  z-index: 20;
+  bottom: 50px;
+  right: 50px;
+  color: rgb(250, 235, 215);
+  font-size: 2rem;
+  cursor: pointer;
+}
+#about .back-to-menu .active-up {
+  transform: rotateZ(180deg);
+}
+#about .back-to-menu strong {
+  position: absolute;
+  background-color: rgb(250, 235, 215);
+  color: rgb(0, 0, 0);
+  border-radius: 10px;
+  bottom: calc(75px - 2rem);
+  right: calc(120px - 2rem);
+  padding: 1rem;
+  z-index: 20;
+  opacity: 0;
+}
+#about .card {
+  position: relative;
+  width: 70%;
+  height: 430px;
+  z-index: 5;
+  margin: 3rem auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(252.85deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 100%);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  border-radius: 20px;
+  z-index: 3;
+}
+#about .card h1 {
+  font-size: 2.5rem;
+  text-align: center !important;
+  z-index: 20;
+}
+#about .card p {
+  font-size: 1.3rem;
+  line-height: 40px;
+  letter-spacing: 1px;
+}
+#about .card span {
+  display: block;
+  text-align: center !important;
+  font-size: 1.7rem;
+  padding: 1rem;
+}
+#about .card h1,
+#about .card p,
+#about .card span {
+  color: rgb(0, 0, 0);
+  text-align: justify;
+  z-index: 2;
+  width: 90%;
+  margin: 0.5rem auto;
+  font-weight: 600;
+}
+
+#skills {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  scroll-snap-align: start;
+  background-color: #2c2f33;
+  background-attachment: fixed;
+}
+#skills .resume-header {
+  position: absolute;
+  text-align: center;
+  left: 0;
+  top: 0;
+  width: 200px;
+  background-color: rgb(250, 235, 215);
+  height: 200px;
+  -webkit-clip-path: polygon(100% 0, 0 0, 0 100%);
+          clip-path: polygon(100% 0, 0 0, 0 100%);
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: center;
+}
+#skills .resume-header h2 {
+  height: 200px;
+  width: 200px;
+  font-size: 3.5rem;
+  color: rgb(27, 27, 27);
+  transform: rotate(-45deg);
+  margin-top: 1rem;
+  margin-left: 2rem;
+}
+#skills .skill-percent {
+  position: absolute;
+  top: 40px;
+  width: 100%;
+  text-align: center;
+}
+#skills .skill-percent strong {
+  color: rgb(250, 235, 215);
+  font-size: 2rem;
+  letter-spacing: 5px;
+  opacity: 0;
+}
+#skills .my-skills {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 87%;
+  width: 90%;
+  margin: 1rem auto;
+  margin-top: 5rem;
+}
+#skills .my-skills .skills-html {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#skills .my-skills .skills-html .rotate-bar-768 {
+  display: none;
+}
+#skills .my-skills .skills-html .skills {
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+#skills .my-skills .skills-html .skills .outer {
+  width: 150px;
+  height: 150px;
+  background: #2c2f33;
+  box-shadow: -6px -6px 10px -1px #3b4451, 6px 6px 10px -1px #000000;
+  border-radius: 50%;
+}
+#skills .my-skills .skills-html .skills .inner {
+  width: 110px;
+  height: 110px;
+  margin: 20px;
+  background: #2c2f33;
+  box-shadow: inset -4px -4px 6px -1px #3b4451, inset 4px 4px 6px -1px #000000;
+  border-radius: 50%;
+}
+#skills .my-skills .skills-html .skills .inner .number {
+  color: rgb(250, 235, 215);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 5px;
+  font-family: Dancing;
+}
+#skills .my-skills .skills-html .skills .inner .number img {
+  z-index: 20;
+  width: 80px;
+  padding: 0.5rem;
+  margin-top: 0.2rem;
+  cursor: pointer;
+}
+#skills .my-skills .skills-html .skills .inner .number img:hover {
+  opacity: 0.5;
+}
+#skills .my-skills .skills-html circle {
+  position: absolute;
+  fill: none;
+  stroke-width: 20px;
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  stroke: url(#Gradient-html);
+  -webkit-animation: anim-html 2s linear 1s forwards;
+          animation: anim-html 2s linear 1s forwards;
+}
+@-webkit-keyframes anim-html {
+  100% {
+    stroke-dashoffset: 230;
+  }
+}
+@keyframes anim-html {
+  100% {
+    stroke-dashoffset: 230;
+  }
+}
+#skills .my-skills .skills-html svg {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#skills .my-skills .skills-css {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#skills .my-skills .skills-css .skills {
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+#skills .my-skills .skills-css .skills .outer {
+  width: 150px;
+  height: 150px;
+  background: #2c2f33;
+  box-shadow: -6px -6px 10px -1px #3b4451, 6px 6px 10px -1px #000000;
+  border-radius: 50%;
+}
+#skills .my-skills .skills-css .skills .inner {
+  width: 110px;
+  height: 110px;
+  margin: 20px;
+  background: #2c2f33;
+  box-shadow: inset -4px -4px 6px -1px #3b4451, inset 4px 4px 6px -1px #000000;
+  border-radius: 50%;
+}
+#skills .my-skills .skills-css .skills .inner .number {
+  color: rgb(250, 235, 215);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 5px;
+  font-family: Dancing;
+}
+#skills .my-skills .skills-css .skills .inner .number img {
+  z-index: 20;
+  width: 80px;
+  padding: 0.5rem;
+  margin-top: 0.2rem;
+  cursor: pointer;
+}
+#skills .my-skills .skills-css .skills .inner .number img:hover {
+  opacity: 0.5;
+}
+#skills .my-skills .skills-css circle {
+  position: absolute;
+  fill: none;
+  stroke-width: 20px;
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  stroke: url(#Gradient-css);
+  -webkit-animation: anim-css 2s linear 1s forwards;
+          animation: anim-css 2s linear 1s forwards;
+}
+@-webkit-keyframes anim-css {
+  100% {
+    stroke-dashoffset: 230;
+  }
+}
+@keyframes anim-css {
+  100% {
+    stroke-dashoffset: 230;
+  }
+}
+#skills .my-skills .skills-css svg {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#skills .my-skills .skills-sass {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#skills .my-skills .skills-sass .skills {
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+#skills .my-skills .skills-sass .skills .outer {
+  width: 150px;
+  height: 150px;
+  background: #2c2f33;
+  box-shadow: -6px -6px 10px -1px #3b4451, 6px 6px 10px -1px #000000;
+  border-radius: 50%;
+}
+#skills .my-skills .skills-sass .skills .inner {
+  width: 110px;
+  height: 110px;
+  margin: 20px;
+  background: #2c2f33;
+  box-shadow: inset -4px -4px 6px -1px #3b4451, inset 4px 4px 6px -1px #000000;
+  border-radius: 50%;
+}
+#skills .my-skills .skills-sass .skills .inner .number {
+  color: rgb(250, 235, 215);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 5px;
+  font-family: Dancing;
+}
+#skills .my-skills .skills-sass .skills .inner .number img {
+  z-index: 20;
+  width: 80px;
+  padding: 0.5rem;
+  margin-top: 0.2rem;
+  cursor: pointer;
+}
+#skills .my-skills .skills-sass .skills .inner .number img:hover {
+  opacity: 0.5;
+}
+#skills .my-skills .skills-sass circle {
+  position: absolute;
+  fill: none;
+  stroke-width: 20px;
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  stroke: url(#Gradient-sass);
+  -webkit-animation: anim-sass 2s linear 1s forwards;
+          animation: anim-sass 2s linear 1s forwards;
+}
+@-webkit-keyframes anim-sass {
+  100% {
+    stroke-dashoffset: 240;
+  }
+}
+@keyframes anim-sass {
+  100% {
+    stroke-dashoffset: 240;
+  }
+}
+#skills .my-skills .skills-sass svg {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#skills .my-skills .skills-bootstrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#skills .my-skills .skills-bootstrap .skills {
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+#skills .my-skills .skills-bootstrap .skills .outer {
+  width: 150px;
+  height: 150px;
+  background: #2c2f33;
+  box-shadow: -6px -6px 10px -1px #3b4451, 6px 6px 10px -1px #000000;
+  border-radius: 50%;
+}
+#skills .my-skills .skills-bootstrap .skills .inner {
+  width: 110px;
+  height: 110px;
+  margin: 20px;
+  background: #2c2f33;
+  box-shadow: inset -4px -4px 6px -1px #3b4451, inset 4px 4px 6px -1px #000000;
+  border-radius: 50%;
+}
+#skills .my-skills .skills-bootstrap .skills .inner .number {
+  color: rgb(250, 235, 215);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 5px;
+  font-family: Dancing;
+}
+#skills .my-skills .skills-bootstrap .skills .inner .number img {
+  z-index: 20;
+  width: 80px;
+  padding: 0.5rem;
+  margin-top: 0.2rem;
+  cursor: pointer;
+}
+#skills .my-skills .skills-bootstrap .skills .inner .number img:hover {
+  opacity: 0.5;
+}
+#skills .my-skills .skills-bootstrap circle {
+  position: absolute;
+  fill: none;
+  stroke-width: 20px;
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  stroke: url(#Gradient-bootstrap);
+  -webkit-animation: anim-bootstrap 2s linear 1s forwards;
+          animation: anim-bootstrap 2s linear 1s forwards;
+}
+@-webkit-keyframes anim-bootstrap {
+  100% {
+    stroke-dashoffset: 240;
+  }
+}
+@keyframes anim-bootstrap {
+  100% {
+    stroke-dashoffset: 240;
+  }
+}
+#skills .my-skills .skills-bootstrap svg {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#skills .my-skills .skills-js {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#skills .my-skills .skills-js .skills {
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+#skills .my-skills .skills-js .skills .outer {
+  width: 150px;
+  height: 150px;
+  background: #2c2f33;
+  box-shadow: -6px -6px 10px -1px #3b4451, 6px 6px 10px -1px #000000;
+  border-radius: 50%;
+}
+#skills .my-skills .skills-js .skills .inner {
+  width: 110px;
+  height: 110px;
+  margin: 20px;
+  background: #2c2f33;
+  box-shadow: inset -4px -4px 6px -1px #3b4451, inset 4px 4px 6px -1px #000000;
+  border-radius: 50%;
+}
+#skills .my-skills .skills-js .skills .inner .number {
+  color: rgb(250, 235, 215);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 5px;
+  font-family: Dancing;
+}
+#skills .my-skills .skills-js .skills .inner .number img {
+  z-index: 20;
+  width: 80px;
+  padding: 0.5rem;
+  margin-top: 0.2rem;
+  cursor: pointer;
+}
+#skills .my-skills .skills-js .skills .inner .number img:hover {
+  opacity: 0.5;
+}
+#skills .my-skills .skills-js circle {
+  position: absolute;
+  fill: none;
+  stroke-width: 20px;
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  stroke: url(#Gradient-js);
+  -webkit-animation: anim-js 2s linear 1s forwards;
+          animation: anim-js 2s linear 1s forwards;
+}
+@-webkit-keyframes anim-js {
+  100% {
+    stroke-dashoffset: 240;
+  }
+}
+@keyframes anim-js {
+  100% {
+    stroke-dashoffset: 240;
+  }
+}
+#skills .my-skills .skills-js svg {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#skills .my-skills .skills-vue {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#skills .my-skills .skills-vue .skills {
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+#skills .my-skills .skills-vue .skills .outer {
+  width: 150px;
+  height: 150px;
+  background: #2c2f33;
+  box-shadow: -6px -6px 10px -1px #3b4451, 6px 6px 10px -1px #000000;
+  border-radius: 50%;
+}
+#skills .my-skills .skills-vue .skills .inner {
+  width: 110px;
+  height: 110px;
+  margin: 20px;
+  background: #2c2f33;
+  box-shadow: inset -4px -4px 6px -1px #3b4451, inset 4px 4px 6px -1px #000000;
+  border-radius: 50%;
+}
+#skills .my-skills .skills-vue .skills .inner .number {
+  color: rgb(250, 235, 215);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 5px;
+  font-family: Dancing;
+}
+#skills .my-skills .skills-vue .skills .inner .number img {
+  z-index: 20;
+  width: 80px;
+  padding: 0.5rem;
+  margin-top: 0.2rem;
+  cursor: pointer;
+}
+#skills .my-skills .skills-vue .skills .inner .number img:hover {
+  opacity: 0.5;
+}
+#skills .my-skills .skills-vue circle {
+  position: absolute;
+  fill: none;
+  stroke-width: 20px;
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  stroke: url(#Gradient-vue);
+  -webkit-animation: anim-vue 2s linear 1s forwards;
+          animation: anim-vue 2s linear 1s forwards;
+}
+@-webkit-keyframes anim-vue {
+  100% {
+    stroke-dashoffset: 260;
+  }
+}
+@keyframes anim-vue {
+  100% {
+    stroke-dashoffset: 260;
+  }
+}
+#skills .my-skills .skills-vue svg {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#skills .my-skills .skills-react {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#skills .my-skills .skills-react .skills {
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+#skills .my-skills .skills-react .skills .outer {
+  width: 150px;
+  height: 150px;
+  background: #2c2f33;
+  box-shadow: -6px -6px 10px -1px #3b4451, 6px 6px 10px -1px #000000;
+  border-radius: 50%;
+}
+#skills .my-skills .skills-react .skills .inner {
+  width: 110px;
+  height: 110px;
+  margin: 20px;
+  background: #2c2f33;
+  box-shadow: inset -4px -4px 6px -1px #3b4451, inset 4px 4px 6px -1px #000000;
+  border-radius: 50%;
+}
+#skills .my-skills .skills-react .skills .inner .number {
+  color: rgb(250, 235, 215);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 5px;
+  font-family: Dancing;
+}
+#skills .my-skills .skills-react .skills .inner .number img {
+  z-index: 20;
+  width: 80px;
+  padding: 0.5rem;
+  margin-top: 0.2rem;
+  cursor: pointer;
+}
+#skills .my-skills .skills-react .skills .inner .number img:hover {
+  opacity: 0.5;
+}
+#skills .my-skills .skills-react circle {
+  position: absolute;
+  fill: none;
+  stroke-width: 20px;
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  stroke: url(#Gradient-react);
+  -webkit-animation: anim-react 2s linear 1s forwards;
+          animation: anim-react 2s linear 1s forwards;
+}
+@-webkit-keyframes anim-react {
+  100% {
+    stroke-dashoffset: 280;
+  }
+}
+@keyframes anim-react {
+  100% {
+    stroke-dashoffset: 280;
+  }
+}
+#skills .my-skills .skills-react svg {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#skills .my-skills .skills-angular {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#skills .my-skills .skills-angular .skills {
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+#skills .my-skills .skills-angular .skills .outer {
+  width: 150px;
+  height: 150px;
+  background: #2c2f33;
+  box-shadow: -6px -6px 10px -1px #3b4451, 6px 6px 10px -1px #000000;
+  border-radius: 50%;
+}
+#skills .my-skills .skills-angular .skills .inner {
+  width: 110px;
+  height: 110px;
+  margin: 20px;
+  background: #2c2f33;
+  box-shadow: inset -4px -4px 6px -1px #3b4451, inset 4px 4px 6px -1px #000000;
+  border-radius: 50%;
+}
+#skills .my-skills .skills-angular .skills .inner .number {
+  color: rgb(250, 235, 215);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 5px;
+  font-family: Dancing;
+}
+#skills .my-skills .skills-angular .skills .inner .number img {
+  z-index: 20;
+  width: 80px;
+  padding: 0.5rem;
+  margin-top: 0.2rem;
+  cursor: pointer;
+}
+#skills .my-skills .skills-angular .skills .inner .number img:hover {
+  opacity: 0.5;
+}
+#skills .my-skills .skills-angular circle {
+  position: absolute;
+  fill: none;
+  stroke-width: 20px;
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  stroke: url(#Gradient-angular);
+  -webkit-animation: anim-angular 2s linear 1s forwards;
+          animation: anim-angular 2s linear 1s forwards;
+}
+@-webkit-keyframes anim-angular {
+  100% {
+    stroke-dashoffset: 260;
+  }
+}
+@keyframes anim-angular {
+  100% {
+    stroke-dashoffset: 260;
+  }
+}
+#skills .my-skills .skills-angular svg {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#skills .my-skills .skills-python {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#skills .my-skills .skills-python .skills {
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+#skills .my-skills .skills-python .skills .outer {
+  width: 150px;
+  height: 150px;
+  background: #2c2f33;
+  box-shadow: -6px -6px 10px -1px #3b4451, 6px 6px 10px -1px #000000;
+  border-radius: 50%;
+}
+#skills .my-skills .skills-python .skills .inner {
+  width: 110px;
+  height: 110px;
+  margin: 20px;
+  background: #2c2f33;
+  box-shadow: inset -4px -4px 6px -1px #3b4451, inset 4px 4px 6px -1px #000000;
+  border-radius: 50%;
+}
+#skills .my-skills .skills-python .skills .inner .number {
+  color: rgb(250, 235, 215);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 5px;
+  font-family: Dancing;
+}
+#skills .my-skills .skills-python .skills .inner .number img {
+  z-index: 20;
+  width: 80px;
+  padding: 0.5rem;
+  margin-top: 0.2rem;
+  cursor: pointer;
+}
+#skills .my-skills .skills-python .skills .inner .number img:hover {
+  opacity: 0.5;
+}
+#skills .my-skills .skills-python circle {
+  position: absolute;
+  fill: none;
+  stroke-width: 20px;
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  stroke: url(#Gradient-python);
+  -webkit-animation: anim-python 2s linear 1s forwards;
+          animation: anim-python 2s linear 1s forwards;
+}
+@-webkit-keyframes anim-python {
+  100% {
+    stroke-dashoffset: 280;
+  }
+}
+@keyframes anim-python {
+  100% {
+    stroke-dashoffset: 280;
+  }
+}
+#skills .my-skills .skills-python svg {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#skills .my-skills .skills-wordpress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#skills .my-skills .skills-wordpress .skills {
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+#skills .my-skills .skills-wordpress .skills .outer {
+  width: 150px;
+  height: 150px;
+  background: #2c2f33;
+  box-shadow: -6px -6px 10px -1px #3b4451, 6px 6px 10px -1px #000000;
+  border-radius: 50%;
+}
+#skills .my-skills .skills-wordpress .skills .inner {
+  width: 110px;
+  height: 110px;
+  margin: 20px;
+  background: #2c2f33;
+  box-shadow: inset -4px -4px 6px -1px #3b4451, inset 4px 4px 6px -1px #000000;
+  border-radius: 50%;
+}
+#skills .my-skills .skills-wordpress .skills .inner .number {
+  color: rgb(250, 235, 215);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 5px;
+  font-family: Dancing;
+}
+#skills .my-skills .skills-wordpress .skills .inner .number img {
+  z-index: 20;
+  width: 80px;
+  padding: 0.5rem;
+  margin-top: 0.2rem;
+  cursor: pointer;
+}
+#skills .my-skills .skills-wordpress .skills .inner .number img:hover {
+  opacity: 0.5;
+}
+#skills .my-skills .skills-wordpress circle {
+  position: absolute;
+  fill: none;
+  stroke-width: 20px;
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  stroke: url(#Gradient-wordpress);
+  -webkit-animation: anim-wordpress 2s linear 1s forwards;
+          animation: anim-wordpress 2s linear 1s forwards;
+}
+@-webkit-keyframes anim-wordpress {
+  100% {
+    stroke-dashoffset: 230;
+  }
+}
+@keyframes anim-wordpress {
+  100% {
+    stroke-dashoffset: 230;
+  }
+}
+#skills .my-skills .skills-wordpress svg {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#skills .my-skills .skills-git {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#skills .my-skills .skills-git .skills {
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+#skills .my-skills .skills-git .skills .outer {
+  width: 150px;
+  height: 150px;
+  background: #2c2f33;
+  box-shadow: -6px -6px 10px -1px #3b4451, 6px 6px 10px -1px #000000;
+  border-radius: 50%;
+}
+#skills .my-skills .skills-git .skills .inner {
+  width: 110px;
+  height: 110px;
+  margin: 20px;
+  background: #2c2f33;
+  box-shadow: inset -4px -4px 6px -1px #3b4451, inset 4px 4px 6px -1px #000000;
+  border-radius: 50%;
+}
+#skills .my-skills .skills-git .skills .inner .number {
+  color: rgb(250, 235, 215);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 5px;
+  font-family: Dancing;
+}
+#skills .my-skills .skills-git .skills .inner .number img {
+  z-index: 20;
+  width: 80px;
+  padding: 0.5rem;
+  margin-top: 0.2rem;
+  cursor: pointer;
+}
+#skills .my-skills .skills-git .skills .inner .number img:hover {
+  opacity: 0.5;
+}
+#skills .my-skills .skills-git circle {
+  position: absolute;
+  fill: none;
+  stroke-width: 20px;
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  stroke: url(#Gradient-git);
+  -webkit-animation: anim-git 2s linear 1s forwards;
+          animation: anim-git 2s linear 1s forwards;
+}
+@-webkit-keyframes anim-git {
+  100% {
+    stroke-dashoffset: 260;
+  }
+}
+@keyframes anim-git {
+  100% {
+    stroke-dashoffset: 260;
+  }
+}
+#skills .my-skills .skills-git svg {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#skills .my-skills .skills-github {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#skills .my-skills .skills-github .skills {
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+#skills .my-skills .skills-github .skills .outer {
+  width: 150px;
+  height: 150px;
+  background: #2c2f33;
+  box-shadow: -6px -6px 10px -1px #3b4451, 6px 6px 10px -1px #000000;
+  border-radius: 50%;
+}
+#skills .my-skills .skills-github .skills .inner {
+  width: 110px;
+  height: 110px;
+  margin: 20px;
+  background: #2c2f33;
+  box-shadow: inset -4px -4px 6px -1px #3b4451, inset 4px 4px 6px -1px #000000;
+  border-radius: 50%;
+}
+#skills .my-skills .skills-github .skills .inner .number {
+  color: rgb(250, 235, 215);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 5px;
+  font-family: Dancing;
+}
+#skills .my-skills .skills-github .skills .inner .number img {
+  z-index: 20;
+  width: 80px;
+  padding: 0.5rem;
+  margin-top: 0.2rem;
+  cursor: pointer;
+}
+#skills .my-skills .skills-github .skills .inner .number img:hover {
+  opacity: 0.5;
+}
+#skills .my-skills .skills-github circle {
+  position: absolute;
+  fill: none;
+  stroke-width: 20px;
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  stroke: url(#Gradient-github);
+  -webkit-animation: anim-github 2s linear 1s forwards;
+          animation: anim-github 2s linear 1s forwards;
+}
+@-webkit-keyframes anim-github {
+  100% {
+    stroke-dashoffset: 230;
+  }
+}
+@keyframes anim-github {
+  100% {
+    stroke-dashoffset: 230;
+  }
+}
+#skills .my-skills .skills-github svg {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#skills .my-skills .skills-figma {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#skills .my-skills .skills-figma .skills {
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+#skills .my-skills .skills-figma .skills .outer {
+  width: 150px;
+  height: 150px;
+  background: #2c2f33;
+  box-shadow: -6px -6px 10px -1px #3b4451, 6px 6px 10px -1px #000000;
+  border-radius: 50%;
+}
+#skills .my-skills .skills-figma .skills .inner {
+  width: 110px;
+  height: 110px;
+  margin: 20px;
+  background: #2c2f33;
+  box-shadow: inset -4px -4px 6px -1px #3b4451, inset 4px 4px 6px -1px #000000;
+  border-radius: 50%;
+}
+#skills .my-skills .skills-figma .skills .inner .number {
+  color: rgb(250, 235, 215);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 5px;
+  font-family: Dancing;
+}
+#skills .my-skills .skills-figma .skills .inner .number img {
+  z-index: 20;
+  width: 80px;
+  padding: 0.5rem;
+  margin-top: 0.2rem;
+  cursor: pointer;
+}
+#skills .my-skills .skills-figma .skills .inner .number img:hover {
+  opacity: 0.5;
+}
+#skills .my-skills .skills-figma circle {
+  position: absolute;
+  fill: none;
+  stroke-width: 20px;
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  stroke: url(#Gradient-figma);
+  -webkit-animation: anim-figma 2s linear 1s forwards;
+          animation: anim-figma 2s linear 1s forwards;
+}
+@-webkit-keyframes anim-figma {
+  100% {
+    stroke-dashoffset: 230;
+  }
+}
+@keyframes anim-figma {
+  100% {
+    stroke-dashoffset: 230;
+  }
+}
+#skills .my-skills .skills-figma svg {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#skills .my-skills .skills-xd {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#skills .my-skills .skills-xd .skills {
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+#skills .my-skills .skills-xd .skills .outer {
+  width: 150px;
+  height: 150px;
+  background: #2c2f33;
+  box-shadow: -6px -6px 10px -1px #3b4451, 6px 6px 10px -1px #000000;
+  border-radius: 50%;
+}
+#skills .my-skills .skills-xd .skills .inner {
+  width: 110px;
+  height: 110px;
+  margin: 20px;
+  background: #2c2f33;
+  box-shadow: inset -4px -4px 6px -1px #3b4451, inset 4px 4px 6px -1px #000000;
+  border-radius: 50%;
+}
+#skills .my-skills .skills-xd .skills .inner .number {
+  color: rgb(250, 235, 215);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 5px;
+  font-family: Dancing;
+}
+#skills .my-skills .skills-xd .skills .inner .number img {
+  z-index: 20;
+  width: 80px;
+  padding: 0.5rem;
+  margin-top: 0.2rem;
+  cursor: pointer;
+}
+#skills .my-skills .skills-xd .skills .inner .number img:hover {
+  opacity: 0.5;
+}
+#skills .my-skills .skills-xd circle {
+  position: absolute;
+  fill: none;
+  stroke-width: 20px;
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  stroke: url(#Gradient-xd);
+  -webkit-animation: anim-xd 2s linear 1s forwards;
+          animation: anim-xd 2s linear 1s forwards;
+}
+@-webkit-keyframes anim-xd {
+  100% {
+    stroke-dashoffset: 230;
+  }
+}
+@keyframes anim-xd {
+  100% {
+    stroke-dashoffset: 230;
+  }
+}
+#skills .my-skills .skills-xd svg {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#skills .my-skills .skills-ps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#skills .my-skills .skills-ps .skills {
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+#skills .my-skills .skills-ps .skills .outer {
+  width: 150px;
+  height: 150px;
+  background: #2c2f33;
+  box-shadow: -6px -6px 10px -1px #3b4451, 6px 6px 10px -1px #000000;
+  border-radius: 50%;
+}
+#skills .my-skills .skills-ps .skills .inner {
+  width: 110px;
+  height: 110px;
+  margin: 20px;
+  background: #2c2f33;
+  box-shadow: inset -4px -4px 6px -1px #3b4451, inset 4px 4px 6px -1px #000000;
+  border-radius: 50%;
+}
+#skills .my-skills .skills-ps .skills .inner .number {
+  color: rgb(250, 235, 215);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 5px;
+  font-family: Dancing;
+}
+#skills .my-skills .skills-ps .skills .inner .number img {
+  z-index: 20;
+  width: 80px;
+  padding: 0.5rem;
+  margin-top: 0.2rem;
+  cursor: pointer;
+}
+#skills .my-skills .skills-ps .skills .inner .number img:hover {
+  opacity: 0.5;
+}
+#skills .my-skills .skills-ps circle {
+  position: absolute;
+  fill: none;
+  stroke-width: 20px;
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  stroke: url(#Gradient-ps);
+  -webkit-animation: anim-ps 2s linear 1s forwards;
+          animation: anim-ps 2s linear 1s forwards;
+}
+@-webkit-keyframes anim-ps {
+  100% {
+    stroke-dashoffset: 290;
+  }
+}
+@keyframes anim-ps {
+  100% {
+    stroke-dashoffset: 290;
+  }
+}
+#skills .my-skills .skills-ps svg {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#skills .my-skills .skills-ai {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#skills .my-skills .skills-ai .skills {
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+#skills .my-skills .skills-ai .skills .outer {
+  width: 150px;
+  height: 150px;
+  background: #2c2f33;
+  box-shadow: -6px -6px 10px -1px #3b4451, 6px 6px 10px -1px #000000;
+  border-radius: 50%;
+}
+#skills .my-skills .skills-ai .skills .inner {
+  width: 110px;
+  height: 110px;
+  margin: 20px;
+  background: #2c2f33;
+  box-shadow: inset -4px -4px 6px -1px #3b4451, inset 4px 4px 6px -1px #000000;
+  border-radius: 50%;
+}
+#skills .my-skills .skills-ai .skills .inner .number {
+  color: rgb(250, 235, 215);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 5px;
+  font-family: Dancing;
+}
+#skills .my-skills .skills-ai .skills .inner .number img {
+  z-index: 20;
+  width: 80px;
+  padding: 0.5rem;
+  margin-top: 0.2rem;
+  cursor: pointer;
+}
+#skills .my-skills .skills-ai .skills .inner .number img:hover {
+  opacity: 0.5;
+}
+#skills .my-skills .skills-ai circle {
+  position: absolute;
+  fill: none;
+  stroke-width: 20px;
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  stroke: url(#Gradient-ai);
+  -webkit-animation: anim-ai 2s linear 1s forwards;
+          animation: anim-ai 2s linear 1s forwards;
+}
+@-webkit-keyframes anim-ai {
+  100% {
+    stroke-dashoffset: 290;
+  }
+}
+@keyframes anim-ai {
+  100% {
+    stroke-dashoffset: 290;
+  }
+}
+#skills .my-skills .skills-ai svg {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#skills .my-skills .skills-br {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#skills .my-skills .skills-br .skills {
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+#skills .my-skills .skills-br .skills .outer {
+  width: 150px;
+  height: 150px;
+  background: #2c2f33;
+  box-shadow: -6px -6px 10px -1px #3b4451, 6px 6px 10px -1px #000000;
+  border-radius: 50%;
+}
+#skills .my-skills .skills-br .skills .inner {
+  width: 110px;
+  height: 110px;
+  margin: 20px;
+  background: #2c2f33;
+  box-shadow: inset -4px -4px 6px -1px #3b4451, inset 4px 4px 6px -1px #000000;
+  border-radius: 50%;
+}
+#skills .my-skills .skills-br .skills .inner .number {
+  color: rgb(250, 235, 215);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 5px;
+  font-family: Dancing;
+}
+#skills .my-skills .skills-br .skills .inner .number img {
+  z-index: 20;
+  width: 80px;
+  padding: 0.5rem;
+  margin-top: 0.2rem;
+  cursor: pointer;
+}
+#skills .my-skills .skills-br .skills .inner .number img:hover {
+  opacity: 0.5;
+}
+#skills .my-skills .skills-br circle {
+  position: absolute;
+  fill: none;
+  stroke-width: 20px;
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  stroke: url(#Gradient-br);
+  -webkit-animation: anim-br 2s linear 1s forwards;
+          animation: anim-br 2s linear 1s forwards;
+}
+@-webkit-keyframes anim-br {
+  100% {
+    stroke-dashoffset: 240;
+  }
+}
+@keyframes anim-br {
+  100% {
+    stroke-dashoffset: 240;
+  }
+}
+#skills .my-skills .skills-br svg {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#skills .my-skills .skills-ae {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#skills .my-skills .skills-ae .skills {
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+#skills .my-skills .skills-ae .skills .outer {
+  width: 150px;
+  height: 150px;
+  background: #2c2f33;
+  box-shadow: -6px -6px 10px -1px #3b4451, 6px 6px 10px -1px #000000;
+  border-radius: 50%;
+}
+#skills .my-skills .skills-ae .skills .inner {
+  width: 110px;
+  height: 110px;
+  margin: 20px;
+  background: #2c2f33;
+  box-shadow: inset -4px -4px 6px -1px #3b4451, inset 4px 4px 6px -1px #000000;
+  border-radius: 50%;
+}
+#skills .my-skills .skills-ae .skills .inner .number {
+  color: rgb(250, 235, 215);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 5px;
+  font-family: Dancing;
+}
+#skills .my-skills .skills-ae .skills .inner .number img {
+  z-index: 20;
+  width: 80px;
+  padding: 0.5rem;
+  margin-top: 0.2rem;
+  cursor: pointer;
+}
+#skills .my-skills .skills-ae .skills .inner .number img:hover {
+  opacity: 0.5;
+}
+#skills .my-skills .skills-ae circle {
+  position: absolute;
+  fill: none;
+  stroke-width: 20px;
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  stroke: url(#Gradient-ae);
+  -webkit-animation: anim-ae 2s linear 1s forwards;
+          animation: anim-ae 2s linear 1s forwards;
+}
+@-webkit-keyframes anim-ae {
+  100% {
+    stroke-dashoffset: 320;
+  }
+}
+@keyframes anim-ae {
+  100% {
+    stroke-dashoffset: 320;
+  }
+}
+#skills .my-skills .skills-ae svg {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#skills .my-skills .skills-googleAna {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#skills .my-skills .skills-googleAna .skills {
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+#skills .my-skills .skills-googleAna .skills .outer {
+  width: 150px;
+  height: 150px;
+  background: #2c2f33;
+  box-shadow: -6px -6px 10px -1px #3b4451, 6px 6px 10px -1px #000000;
+  border-radius: 50%;
+}
+#skills .my-skills .skills-googleAna .skills .inner {
+  width: 110px;
+  height: 110px;
+  margin: 20px;
+  background: #2c2f33;
+  box-shadow: inset -4px -4px 6px -1px #3b4451, inset 4px 4px 6px -1px #000000;
+  border-radius: 50%;
+}
+#skills .my-skills .skills-googleAna .skills .inner .number {
+  color: rgb(250, 235, 215);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 5px;
+  font-family: Dancing;
+}
+#skills .my-skills .skills-googleAna .skills .inner .number img {
+  z-index: 20;
+  width: 80px;
+  padding: 0.5rem;
+  margin-top: 0.2rem;
+  cursor: pointer;
+}
+#skills .my-skills .skills-googleAna .skills .inner .number img:hover {
+  opacity: 0.5;
+}
+#skills .my-skills .skills-googleAna circle {
+  position: absolute;
+  fill: none;
+  stroke-width: 20px;
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  stroke: url(#Gradient-googleAna);
+  -webkit-animation: anim-googleAna 2s linear 1s forwards;
+          animation: anim-googleAna 2s linear 1s forwards;
+}
+@-webkit-keyframes anim-googleAna {
+  100% {
+    stroke-dashoffset: 290;
+  }
+}
+@keyframes anim-googleAna {
+  100% {
+    stroke-dashoffset: 290;
+  }
+}
+#skills .my-skills .skills-googleAna svg {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#skills .my-skills .skills-seo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#skills .my-skills .skills-seo .skills {
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+#skills .my-skills .skills-seo .skills .outer {
+  width: 150px;
+  height: 150px;
+  background: #2c2f33;
+  box-shadow: -6px -6px 10px -1px #3b4451, 6px 6px 10px -1px #000000;
+  border-radius: 50%;
+}
+#skills .my-skills .skills-seo .skills .inner {
+  width: 110px;
+  height: 110px;
+  margin: 20px;
+  background: #2c2f33;
+  box-shadow: inset -4px -4px 6px -1px #3b4451, inset 4px 4px 6px -1px #000000;
+  border-radius: 50%;
+}
+#skills .my-skills .skills-seo .skills .inner .number {
+  color: rgb(250, 235, 215);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 5px;
+  font-family: Dancing;
+}
+#skills .my-skills .skills-seo .skills .inner .number img {
+  z-index: 20;
+  width: 80px;
+  padding: 0.5rem;
+  margin-top: 0.2rem;
+  cursor: pointer;
+}
+#skills .my-skills .skills-seo .skills .inner .number img:hover {
+  opacity: 0.5;
+}
+#skills .my-skills .skills-seo circle {
+  position: absolute;
+  fill: none;
+  stroke-width: 20px;
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  stroke: url(#Gradient-seo);
+  -webkit-animation: anim-seo 2s linear 1s forwards;
+          animation: anim-seo 2s linear 1s forwards;
+}
+@-webkit-keyframes anim-seo {
+  100% {
+    stroke-dashoffset: 240;
+  }
+}
+@keyframes anim-seo {
+  100% {
+    stroke-dashoffset: 240;
+  }
+}
+#skills .my-skills .skills-seo svg {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#skills .back-to-menu i {
+  position: absolute;
+  z-index: 20;
+  bottom: 50px;
+  right: 50px;
+  color: rgb(250, 235, 215);
+  font-size: 2rem;
+  cursor: pointer;
+}
+#skills .back-to-menu .active-up {
+  transform: rotateZ(180deg);
+}
+#skills .back-to-menu strong {
+  position: absolute;
+  background-color: rgb(250, 235, 215);
+  color: rgb(0, 0, 0);
+  border-radius: 10px;
+  bottom: calc(75px - 2rem);
+  right: calc(120px - 2rem);
+  padding: 1rem;
+  z-index: 20;
+  opacity: 0;
+}
+
+#portfolio {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  scroll-snap-align: start;
+  background: url(../image/red-sky.webp) center center/cover no-repeat;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-attachment: fixed;
+}
+#portfolio::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+  -webkit-animation: portfolioAnimationBg 2s 2s forwards;
+          animation: portfolioAnimationBg 2s 2s forwards;
+}
+@-webkit-keyframes portfolioAnimationBg {
+  0% {
+    background: transparent;
+  }
+  100% {
+    background: rgba(0, 0, 0, 0.8);
+  }
+}
+@keyframes portfolioAnimationBg {
+  0% {
+    background: transparent;
+  }
+  100% {
+    background: rgba(0, 0, 0, 0.8);
+  }
+}
+#portfolio .portfolio-header {
+  position: absolute;
+  text-align: center;
+  right: 0;
+  top: 0;
+  width: 300px;
+  height: 300px;
+  background-color: rgb(250, 235, 215);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 100%);
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: center;
+  z-index: 5;
+}
+#portfolio .portfolio-header h2 {
+  height: 300px;
+  width: 200px;
+  font-size: 3.5rem;
+  color: rgb(27, 27, 27);
+  transform: rotate(45deg);
+  margin-top: 2rem;
+  margin-left: 2rem;
+}
+#portfolio .main-portfolio-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100vh;
+  z-index: 5;
+}
+#portfolio .main-portfolio-content div {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+}
+#portfolio .main-portfolio-content div .web-design-text,
+#portfolio .main-portfolio-content div .ui-ux-design-text,
+#portfolio .main-portfolio-content div .graphic-design-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: -1;
+}
+#portfolio .main-portfolio-content div a {
+  color: rgb(250, 235, 215);
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: 3px;
+}
+#portfolio .main-portfolio-content .web-design {
+  background: url(../image/web-design.webp);
+  background-position: bottom !important;
+  width: 40%;
+  height: 25%;
+  border-radius: 20px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 5;
+}
+#portfolio .main-portfolio-content .ui-ux-design {
+  background: url(../image/ui-ux.webp);
+  width: 40%;
+  height: 25%;
+  border-radius: 20px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 5;
+}
+#portfolio .main-portfolio-content .graphic-design {
+  background: url(../image/graphic-design.webp);
+  width: 40%;
+  height: 25%;
+  border-radius: 20px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 5;
+}
+#portfolio .back-to-menu i {
+  position: absolute;
+  z-index: 20;
+  bottom: 50px;
+  right: 50px;
+  color: rgb(250, 235, 215);
+  font-size: 2rem;
+  cursor: pointer;
+}
+#portfolio .back-to-menu .active-up {
+  transform: rotateZ(180deg);
+}
+#portfolio .back-to-menu strong {
+  position: absolute;
+  background-color: rgb(250, 235, 215);
+  color: rgb(0, 0, 0);
+  border-radius: 10px;
+  bottom: calc(75px - 2rem);
+  right: calc(120px - 2rem);
+  padding: 1rem;
+  z-index: 20;
+  opacity: 0;
+}
+
+#websiteDesignPage {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  scroll-snap-align: start;
+  background: url(../image/web-design.webp) center center/cover no-repeat;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-attachment: fixed;
+}
+#websiteDesignPage::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+  -webkit-animation: websiteDesignAnimationBg 2s 2s forwards;
+          animation: websiteDesignAnimationBg 2s 2s forwards;
+}
+@-webkit-keyframes websiteDesignAnimationBg {
+  0% {
+    background: transparent;
+  }
+  100% {
+    background: rgba(0, 0, 0, 0.8);
+  }
+}
+@keyframes websiteDesignAnimationBg {
+  0% {
+    background: transparent;
+  }
+  100% {
+    background: rgba(0, 0, 0, 0.8);
+  }
+}
+#websiteDesignPage .web-design-header {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 5;
+}
+#websiteDesignPage .web-design-header h2 {
+  font-size: 2.3rem;
+  margin: 1rem 0;
+}
+#websiteDesignPage .website-preview {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 5;
+  height: 90%;
+}
+#websiteDesignPage .website-preview .site {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  background-color: rgb(250, 235, 215);
+  width: 20%;
+  height: 300px;
+  border-radius: 20px;
+  margin: 1rem;
+}
+#websiteDesignPage .website-preview .site img {
+  width: 95%;
+  border-radius: 20px;
+}
+#websiteDesignPage .website-preview .site a {
+  padding: 0.5rem 1.5rem;
+  background-color: rgb(168, 0, 64);
+  color: rgb(250, 235, 215);
+  font-weight: 900;
+  letter-spacing: 3px;
+  border-radius: 50px;
+  cursor: pointer;
+  width: 40%;
+}
+#websiteDesignPage .website-preview .site a:hover {
+  width: 90%;
+}
+
+#uiuxDesignPage {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  scroll-snap-align: start;
+  background: url(../image/ui-ux.webp) center center/cover no-repeat;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-attachment: fixed;
+}
+#uiuxDesignPage::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+  -webkit-animation: uiuxDesignAnimationBg 2s 2s forwards;
+          animation: uiuxDesignAnimationBg 2s 2s forwards;
+}
+@-webkit-keyframes uiuxDesignAnimationBg {
+  0% {
+    background: transparent;
+  }
+  100% {
+    background: rgba(0, 0, 0, 0.8);
+  }
+}
+@keyframes uiuxDesignAnimationBg {
+  0% {
+    background: transparent;
+  }
+  100% {
+    background: rgba(0, 0, 0, 0.8);
+  }
+}
+#uiuxDesignPage .uiux-design-header {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 5;
+}
+#uiuxDesignPage .uiux-design-header h2 {
+  font-size: 2.3rem;
+  margin: 1rem 0;
+}
+#uiuxDesignPage .uiux-preview {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 5;
+  height: 90%;
+}
+#uiuxDesignPage .uiux-preview .uiux {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  background-color: rgb(250, 235, 215);
+  width: 20%;
+  height: 300px;
+  border-radius: 20px;
+  margin: 1rem;
+}
+#uiuxDesignPage .uiux-preview .uiux img {
+  width: 95%;
+  border-radius: 20px;
+}
+#uiuxDesignPage .uiux-preview .uiux a {
+  padding: 0.5rem 1.5rem;
+  background-color: rgb(168, 0, 64);
+  color: rgb(250, 235, 215);
+  font-weight: 900;
+  letter-spacing: 3px;
+  border-radius: 50px;
+  cursor: pointer;
+  width: 40%;
+}
+#uiuxDesignPage .uiux-preview .uiux a:hover {
+  width: 90%;
+}
+
+#graphicDesignPage {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  scroll-snap-align: start;
+  background: url(../image/graphic-design.webp) center center/cover no-repeat;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-attachment: fixed;
+}
+#graphicDesignPage::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+  -webkit-animation: graphicDesignAnimationBg 2s 2s forwards;
+          animation: graphicDesignAnimationBg 2s 2s forwards;
+}
+@-webkit-keyframes graphicDesignAnimationBg {
+  0% {
+    background: transparent;
+  }
+  100% {
+    background: rgba(0, 0, 0, 0.55);
+  }
+}
+@keyframes graphicDesignAnimationBg {
+  0% {
+    background: transparent;
+  }
+  100% {
+    background: rgba(0, 0, 0, 0.55);
+  }
+}
+#graphicDesignPage .graphic-design-header {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 5;
+}
+#graphicDesignPage .graphic-design-header h2 {
+  font-size: 2.3rem;
+  margin: 1rem 0;
+}
+#graphicDesignPage .graphic-preview {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 5;
+  height: 90%;
+}
+#graphicDesignPage .graphic-preview .graphic {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  background-color: rgb(250, 235, 215);
+  width: 20%;
+  height: 300px;
+  border-radius: 20px;
+  margin: 1rem;
+}
+#graphicDesignPage .graphic-preview .graphic img {
+  width: 95%;
+  border-radius: 20px;
+}
+#graphicDesignPage .graphic-preview .graphic a {
+  padding: 0.5rem 1.5rem;
+  background-color: rgb(168, 0, 64);
+  color: rgb(250, 235, 215);
+  font-weight: 900;
+  letter-spacing: 3px;
+  border-radius: 50px;
+  cursor: pointer;
+  width: 40%;
+}
+#graphicDesignPage .graphic-preview .graphic a:hover {
+  width: 90%;
+}
+
+#contact {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  scroll-snap-align: start;
+  background: url(../image/contact.webp) center center/cover no-repeat;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-attachment: fixed;
+}
+#contact::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+  -webkit-animation: contactAnimationBg 2s 2s forwards;
+          animation: contactAnimationBg 2s 2s forwards;
+}
+@-webkit-keyframes contactAnimationBg {
+  0% {
+    background: transparent;
+  }
+  100% {
+    background: rgba(0, 0, 0, 0.8);
+  }
+}
+@keyframes contactAnimationBg {
+  0% {
+    background: transparent;
+  }
+  100% {
+    background: rgba(0, 0, 0, 0.8);
+  }
+}
+#contact .contact-header {
+  position: absolute;
+  text-align: center;
+  left: 0;
+  top: 0;
+  width: 200px;
+  background-color: rgb(250, 235, 215);
+  height: 200px;
+  -webkit-clip-path: polygon(100% 0, 0 0, 0 100%);
+          clip-path: polygon(100% 0, 0 0, 0 100%);
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: center;
+  z-index: 2;
+}
+#contact .contact-header h2 {
+  height: 200px;
+  width: 200px;
+  font-size: 3.5rem;
+  color: rgb(27, 27, 27);
+  transform: rotate(-45deg);
+  margin-top: 1rem;
+  margin-left: 2rem;
+}
+#contact .main-contact {
+  position: relative;
+  height: 100vh;
+  width: 55%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  z-index: 5;
+}
+#contact .main-contact .click-message {
+  margin: 3rem 0;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 1rem 2rem;
+  border-radius: 15px;
+}
+#contact .main-contact .click-message img {
+  width: 50px;
+  margin-right: 2rem;
+}
+#contact .main-contact .click-message p {
+  color: rgb(250, 235, 215);
+  font-size: 2rem;
+  font-weight: 900 !important;
+  color: rgb(0, 0, 0);
+}
+#contact .main-contact div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#contact .main-contact div img {
+  width: 60px;
+}
+#contact .main-contact div a {
+  color: rgb(250, 235, 215);
+  margin-left: 2rem;
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: 5px;
+}
+#contact .back-to-menu i {
+  position: absolute;
+  z-index: 25;
+  bottom: 50px;
+  right: 50px;
+  color: rgb(250, 235, 215);
+  font-size: 2rem;
+  cursor: pointer;
+}
+#contact .back-to-menu .active-up {
+  transform: rotateZ(180deg);
+}
+#contact .back-to-menu strong {
+  position: absolute;
+  background-color: rgb(250, 235, 215);
+  color: rgb(0, 0, 0);
+  border-radius: 10px;
+  bottom: calc(75px - 2rem);
+  right: calc(120px - 2rem);
+  padding: 1rem;
+  z-index: 20;
+  opacity: 0;
+}
+
+#github {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  scroll-snap-align: start;
+  background: url(../image/github.webp) center center/cover no-repeat;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-attachment: fixed;
+}
+#github::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+  -webkit-animation: githubAnimationBg 2s 2s forwards;
+          animation: githubAnimationBg 2s 2s forwards;
+}
+@-webkit-keyframes githubAnimationBg {
+  0% {
+    background: transparent;
+  }
+  100% {
+    background: rgba(0, 0, 0, 0.8);
+  }
+}
+@keyframes githubAnimationBg {
+  0% {
+    background: transparent;
+  }
+  100% {
+    background: rgba(0, 0, 0, 0.8);
+  }
+}
+#github .github-header {
+  position: absolute;
+  text-align: center;
+  right: 0;
+  top: 0;
+  width: 200px;
+  background-color: rgb(250, 235, 215);
+  height: 200px;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 100%);
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: center;
+  z-index: 2;
+}
+#github .github-header h2 {
+  height: 200px;
+  width: 200px;
+  font-size: 3.5rem;
+  color: rgb(27, 27, 27);
+  transform: rotate(45deg);
+  margin-top: 1rem;
+  margin-right: 2rem;
+}
+#github .click-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+  width: 70%;
+  margin: 3rem auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 1rem 2rem;
+  border-radius: 15px;
+}
+#github .click-message img {
+  width: 50px;
+  margin-right: 2rem;
+}
+#github .click-message p {
+  font-size: 2rem;
+  font-weight: 900 !important;
+  color: rgb(250, 235, 215);
+}
+#github .main-github {
+  position: relative;
+  height: 70vh;
+  width: 92%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+}
+#github .main-github a {
+  color: rgb(250, 235, 215);
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  border: 2px solid rgb(250, 235, 215);
+  border-radius: 10px;
+}
+#github .main-github a:hover {
+  background-color: rgb(250, 235, 215);
+  color: rgb(0, 0, 0);
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+#github .back-to-menu i {
+  position: absolute;
+  z-index: 25;
+  bottom: 50px;
+  right: 50px;
+  color: rgb(250, 235, 215);
+  font-size: 2rem;
+  cursor: pointer;
+}
+#github .back-to-menu .active-up {
+  transform: rotateZ(180deg);
+}
+#github .back-to-menu strong {
+  position: absolute;
+  background-color: rgb(250, 235, 215);
+  color: rgb(0, 0, 0);
+  border-radius: 10px;
+  bottom: calc(75px - 2rem);
+  right: calc(120px - 2rem);
+  padding: 1rem;
+  z-index: 20;
+  opacity: 0;
+}
+
+@media screen and (max-width: 1024px) {
+  #about .card {
+    height: 530px;
+    margin-top: 6rem;
+  }
+
+  #portfolio .portfolio-header {
+    width: 250px;
+    height: 250px;
+  }
+  #portfolio .portfolio-header h2 {
+    height: 250px;
+    width: 200px;
+    margin: 0;
+    margin-top: 2rem;
+  }
+  #portfolio .main-portfolio-content .web-design {
+    width: 60%;
+    height: 20%;
+    border-radius: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 5;
+  }
+  #portfolio .main-portfolio-content .ui-ux-design {
+    width: 60%;
+    height: 20%;
+    border-radius: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 5;
+  }
+  #portfolio .main-portfolio-content .graphic-design {
+    width: 60%;
+    height: 20%;
+    border-radius: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 5;
+  }
+
+  #websiteDesignPage .website-preview {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+    height: 90%;
+  }
+  #websiteDesignPage .website-preview .site {
+    width: 30%;
+    height: 250px;
+    margin: 1rem;
+  }
+  #websiteDesignPage .website-preview .site img {
+    width: 90%;
+  }
+
+  #uiuxDesignPage .uiux-preview {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+    height: 90%;
+  }
+  #uiuxDesignPage .uiux-preview .uiux {
+    width: 30%;
+    height: 250px;
+    margin: 1rem;
+  }
+  #uiuxDesignPage .uiux-preview .uiux img {
+    width: 90%;
+  }
+
+  #graphicDesignPage .graphic-preview {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+    height: 90%;
+  }
+  #graphicDesignPage .graphic-preview .graphic {
+    width: 30%;
+    height: 250px;
+    margin: 1rem;
+  }
+  #graphicDesignPage .graphic-preview .graphic img {
+    width: 90%;
+  }
+
+  #contact .contact-header h2 {
+    font-size: 3rem;
+  }
+  #contact .main-contact {
+    height: 90vh;
+    width: 80%;
+    margin: auto;
+    margin-top: 7vh;
+  }
+
+  #github .click-message {
+    margin: auto;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+  }
+  #github .click-message img {
+    width: 50px;
+  }
+  #github .click-message p {
+    font-size: 1.5rem;
+    text-align: center;
+    line-height: 50px;
+  }
+  #github .main-github {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 768px) {
+  #skills .skill-percent strong {
+    font-size: 1.5rem;
+  }
+  #skills .my-skills .circle {
+    transform: scale(0.6);
+  }
+  #skills .my-skills .skills-html .skills {
+    width: 130px;
+    height: 130px;
+  }
+  #skills .my-skills .skills-html .skills .outer {
+    width: 100px;
+    height: 100px;
+  }
+  #skills .my-skills .skills-html .skills .inner {
+    width: 60px;
+    height: 60px;
+    margin: 20px;
+  }
+  #skills .my-skills .skills-html .skills .inner .number {
+    font-size: 1.3rem;
+  }
+  #skills .my-skills .skills-html .skills .inner .number img {
+    width: 50px;
+  }
+  #skills .my-skills .skills-css .skills {
+    width: 130px;
+    height: 130px;
+  }
+  #skills .my-skills .skills-css .skills .outer {
+    width: 100px;
+    height: 100px;
+  }
+  #skills .my-skills .skills-css .skills .inner {
+    width: 60px;
+    height: 60px;
+    margin: 20px;
+  }
+  #skills .my-skills .skills-css .skills .inner .number {
+    font-size: 1.3rem;
+  }
+  #skills .my-skills .skills-css .skills .inner .number img {
+    width: 50px;
+  }
+  #skills .my-skills .skills-sass .skills {
+    width: 130px;
+    height: 130px;
+  }
+  #skills .my-skills .skills-sass .skills .outer {
+    width: 100px;
+    height: 100px;
+  }
+  #skills .my-skills .skills-sass .skills .inner {
+    width: 60px;
+    height: 60px;
+    margin: 20px;
+  }
+  #skills .my-skills .skills-sass .skills .inner .number {
+    font-size: 1.3rem;
+  }
+  #skills .my-skills .skills-sass .skills .inner .number img {
+    width: 50px;
+  }
+  #skills .my-skills .skills-bootstrap .skills {
+    width: 130px;
+    height: 130px;
+  }
+  #skills .my-skills .skills-bootstrap .skills .outer {
+    width: 100px;
+    height: 100px;
+  }
+  #skills .my-skills .skills-bootstrap .skills .inner {
+    width: 60px;
+    height: 60px;
+    margin: 20px;
+  }
+  #skills .my-skills .skills-bootstrap .skills .inner .number {
+    font-size: 1.3rem;
+  }
+  #skills .my-skills .skills-bootstrap .skills .inner .number img {
+    width: 50px;
+  }
+  #skills .my-skills .skills-js .skills {
+    width: 130px;
+    height: 130px;
+  }
+  #skills .my-skills .skills-js .skills .outer {
+    width: 100px;
+    height: 100px;
+  }
+  #skills .my-skills .skills-js .skills .inner {
+    width: 60px;
+    height: 60px;
+    margin: 20px;
+  }
+  #skills .my-skills .skills-js .skills .inner .number {
+    font-size: 1.3rem;
+  }
+  #skills .my-skills .skills-js .skills .inner .number img {
+    width: 50px;
+  }
+  #skills .my-skills .skills-vue .skills {
+    width: 130px;
+    height: 130px;
+  }
+  #skills .my-skills .skills-vue .skills .outer {
+    width: 100px;
+    height: 100px;
+  }
+  #skills .my-skills .skills-vue .skills .inner {
+    width: 60px;
+    height: 60px;
+    margin: 20px;
+  }
+  #skills .my-skills .skills-vue .skills .inner .number {
+    font-size: 1.3rem;
+  }
+  #skills .my-skills .skills-vue .skills .inner .number img {
+    width: 50px;
+  }
+  #skills .my-skills .skills-react .skills {
+    width: 130px;
+    height: 130px;
+  }
+  #skills .my-skills .skills-react .skills .outer {
+    width: 100px;
+    height: 100px;
+  }
+  #skills .my-skills .skills-react .skills .inner {
+    width: 60px;
+    height: 60px;
+    margin: 20px;
+  }
+  #skills .my-skills .skills-react .skills .inner .number {
+    font-size: 1.3rem;
+  }
+  #skills .my-skills .skills-react .skills .inner .number img {
+    width: 50px;
+  }
+  #skills .my-skills .skills-angular .skills {
+    width: 130px;
+    height: 130px;
+  }
+  #skills .my-skills .skills-angular .skills .outer {
+    width: 100px;
+    height: 100px;
+  }
+  #skills .my-skills .skills-angular .skills .inner {
+    width: 60px;
+    height: 60px;
+    margin: 20px;
+  }
+  #skills .my-skills .skills-angular .skills .inner .number {
+    font-size: 1.3rem;
+  }
+  #skills .my-skills .skills-angular .skills .inner .number img {
+    width: 50px;
+  }
+  #skills .my-skills .skills-python .skills {
+    width: 130px;
+    height: 130px;
+  }
+  #skills .my-skills .skills-python .skills .outer {
+    width: 100px;
+    height: 100px;
+  }
+  #skills .my-skills .skills-python .skills .inner {
+    width: 60px;
+    height: 60px;
+    margin: 20px;
+  }
+  #skills .my-skills .skills-python .skills .inner .number {
+    font-size: 1.3rem;
+  }
+  #skills .my-skills .skills-python .skills .inner .number img {
+    width: 50px;
+  }
+  #skills .my-skills .skills-wordpress .skills {
+    width: 130px;
+    height: 130px;
+  }
+  #skills .my-skills .skills-wordpress .skills .outer {
+    width: 100px;
+    height: 100px;
+  }
+  #skills .my-skills .skills-wordpress .skills .inner {
+    width: 60px;
+    height: 60px;
+    margin: 20px;
+  }
+  #skills .my-skills .skills-wordpress .skills .inner .number {
+    font-size: 1.3rem;
+  }
+  #skills .my-skills .skills-wordpress .skills .inner .number img {
+    width: 50px;
+  }
+  #skills .my-skills .skills-git .skills {
+    width: 130px;
+    height: 130px;
+  }
+  #skills .my-skills .skills-git .skills .outer {
+    width: 100px;
+    height: 100px;
+  }
+  #skills .my-skills .skills-git .skills .inner {
+    width: 60px;
+    height: 60px;
+    margin: 20px;
+  }
+  #skills .my-skills .skills-git .skills .inner .number {
+    font-size: 1.3rem;
+  }
+  #skills .my-skills .skills-git .skills .inner .number img {
+    width: 50px;
+  }
+  #skills .my-skills .skills-github .skills {
+    width: 130px;
+    height: 130px;
+  }
+  #skills .my-skills .skills-github .skills .outer {
+    width: 100px;
+    height: 100px;
+  }
+  #skills .my-skills .skills-github .skills .inner {
+    width: 60px;
+    height: 60px;
+    margin: 20px;
+  }
+  #skills .my-skills .skills-github .skills .inner .number {
+    font-size: 1.3rem;
+  }
+  #skills .my-skills .skills-github .skills .inner .number img {
+    width: 50px;
+  }
+  #skills .my-skills .skills-figma .skills {
+    width: 130px;
+    height: 130px;
+  }
+  #skills .my-skills .skills-figma .skills .outer {
+    width: 100px;
+    height: 100px;
+  }
+  #skills .my-skills .skills-figma .skills .inner {
+    width: 60px;
+    height: 60px;
+    margin: 20px;
+  }
+  #skills .my-skills .skills-figma .skills .inner .number {
+    font-size: 1.3rem;
+  }
+  #skills .my-skills .skills-figma .skills .inner .number img {
+    width: 50px;
+  }
+  #skills .my-skills .skills-xd .skills {
+    width: 130px;
+    height: 130px;
+  }
+  #skills .my-skills .skills-xd .skills .outer {
+    width: 100px;
+    height: 100px;
+  }
+  #skills .my-skills .skills-xd .skills .inner {
+    width: 60px;
+    height: 60px;
+    margin: 20px;
+  }
+  #skills .my-skills .skills-xd .skills .inner .number {
+    font-size: 1.3rem;
+  }
+  #skills .my-skills .skills-xd .skills .inner .number img {
+    width: 50px;
+  }
+  #skills .my-skills .skills-ps .skills {
+    width: 130px;
+    height: 130px;
+  }
+  #skills .my-skills .skills-ps .skills .outer {
+    width: 100px;
+    height: 100px;
+  }
+  #skills .my-skills .skills-ps .skills .inner {
+    width: 60px;
+    height: 60px;
+    margin: 20px;
+  }
+  #skills .my-skills .skills-ps .skills .inner .number {
+    font-size: 1.3rem;
+  }
+  #skills .my-skills .skills-ps .skills .inner .number img {
+    width: 50px;
+  }
+  #skills .my-skills .skills-ai .skills {
+    width: 130px;
+    height: 130px;
+  }
+  #skills .my-skills .skills-ai .skills .outer {
+    width: 100px;
+    height: 100px;
+  }
+  #skills .my-skills .skills-ai .skills .inner {
+    width: 60px;
+    height: 60px;
+    margin: 20px;
+  }
+  #skills .my-skills .skills-ai .skills .inner .number {
+    font-size: 1.3rem;
+  }
+  #skills .my-skills .skills-ai .skills .inner .number img {
+    width: 50px;
+  }
+  #skills .my-skills .skills-br .skills {
+    width: 130px;
+    height: 130px;
+  }
+  #skills .my-skills .skills-br .skills .outer {
+    width: 100px;
+    height: 100px;
+  }
+  #skills .my-skills .skills-br .skills .inner {
+    width: 60px;
+    height: 60px;
+    margin: 20px;
+  }
+  #skills .my-skills .skills-br .skills .inner .number {
+    font-size: 1.3rem;
+  }
+  #skills .my-skills .skills-br .skills .inner .number img {
+    width: 50px;
+  }
+  #skills .my-skills .skills-ae .skills {
+    width: 130px;
+    height: 130px;
+  }
+  #skills .my-skills .skills-ae .skills .outer {
+    width: 100px;
+    height: 100px;
+  }
+  #skills .my-skills .skills-ae .skills .inner {
+    width: 60px;
+    height: 60px;
+    margin: 20px;
+  }
+  #skills .my-skills .skills-ae .skills .inner .number {
+    font-size: 1.3rem;
+  }
+  #skills .my-skills .skills-ae .skills .inner .number img {
+    width: 50px;
+  }
+  #skills .my-skills .skills-googleAna .skills {
+    width: 130px;
+    height: 130px;
+  }
+  #skills .my-skills .skills-googleAna .skills .outer {
+    width: 100px;
+    height: 100px;
+  }
+  #skills .my-skills .skills-googleAna .skills .inner {
+    width: 60px;
+    height: 60px;
+    margin: 20px;
+  }
+  #skills .my-skills .skills-googleAna .skills .inner .number {
+    font-size: 1.3rem;
+  }
+  #skills .my-skills .skills-googleAna .skills .inner .number img {
+    width: 50px;
+  }
+  #skills .my-skills .skills-seo .skills {
+    width: 130px;
+    height: 130px;
+  }
+  #skills .my-skills .skills-seo .skills .outer {
+    width: 100px;
+    height: 100px;
+  }
+  #skills .my-skills .skills-seo .skills .inner {
+    width: 60px;
+    height: 60px;
+    margin: 20px;
+  }
+  #skills .my-skills .skills-seo .skills .inner .number {
+    font-size: 1.3rem;
+  }
+  #skills .my-skills .skills-seo .skills .inner .number img {
+    width: 50px;
+  }
+
+  #portfolio .main-portfolio-content {
+    justify-content: center;
+  }
+  #portfolio .main-portfolio-content div {
+    margin-bottom: 2rem;
+  }
+
+  #websiteDesignPage .website-preview {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+    height: 90%;
+  }
+  #websiteDesignPage .website-preview .site {
+    width: 27%;
+    height: 200px;
+    margin: 1rem;
+  }
+  #websiteDesignPage .website-preview .site img {
+    width: 90%;
+    height: 50%;
+    background-repeat: no-repeat;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  #websiteDesignPage .website-preview .site a {
+    text-align: center;
+    width: 60%;
+  }
+
+  #uiuxDesignPage .uiux-preview {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+    height: 90%;
+  }
+  #uiuxDesignPage .uiux-preview .uiux {
+    width: 27%;
+    height: 200px;
+    margin: 1rem;
+  }
+  #uiuxDesignPage .uiux-preview .uiux img {
+    width: 90%;
+    height: 50%;
+    background-repeat: no-repeat;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  #uiuxDesignPage .uiux-preview .uiux a {
+    text-align: center;
+    width: 60%;
+  }
+
+  #graphicDesignPage .graphic-preview {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+    height: 90%;
+  }
+  #graphicDesignPage .graphic-preview .graphic {
+    width: 27%;
+    height: 200px;
+    margin: 1rem;
+  }
+  #graphicDesignPage .graphic-preview .graphic img {
+    width: 90%;
+    height: 50%;
+    background-repeat: no-repeat;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  #graphicDesignPage .graphic-preview .graphic a {
+    text-align: center;
+    width: 60%;
+  }
+
+  #contact .contact-header h2 {
+    font-size: 3rem;
+  }
+  #contact .main-contact {
+    height: 80vh;
+    width: 90%;
+    margin-top: 15vh;
+  }
+  #contact .click-message {
+    padding: 1rem;
+  }
+  #contact .click-message img {
+    width: 50px;
+    margin-right: 1rem;
+  }
+  #contact .click-message p {
+    font-size: 1.65rem !important;
+  }
+
+  #github .github-header {
+    width: 200px;
+    height: 200px;
+  }
+  #github .click-message {
+    width: 70%;
+    padding: 1rem;
+    margin-right: 10rem;
+  }
+  #github .click-message img {
+    width: 40px;
+    margin-right: 1rem;
+  }
+  #github .click-message p {
+    font-size: 1rem;
+  }
+  #github .main-github {
+    position: relative;
+    height: 70vh;
+    width: 95%;
+    overflow: hidden;
+  }
+}
+@media screen and (max-width: 500px) {
+  header .logo img {
+    width: 300px;
+  }
+
+  nav .menuMessages {
+    font-size: 1rem;
+    padding: 0.7rem;
+    width: 90%;
+  }
+  nav .menu {
+    width: 350px;
+    height: 350px;
+  }
+  nav .menu li {
+    transform-origin: 175px;
+    transform: rotate(0deg) translateX(125px);
+  }
+  nav .menu .toggle {
+    width: 70px;
+    height: 70px;
+  }
+  nav .menu .toggle i {
+    font-size: 2rem;
+  }
+  nav .menu li a i {
+    font-size: 2rem;
+  }
+
+  #about .card {
+    width: 90%;
+    height: 500px;
+    margin: 2rem auto;
+  }
+  #about .card h1 {
+    font-size: 1.5rem;
+  }
+  #about .card p {
+    font-size: 1rem;
+    line-height: 30px;
+  }
+  #about .card span {
+    font-size: 1.2rem;
+    font-weight: 900;
+    padding: 0.5rem;
+    margin: 1rem auto;
+  }
+
+  #skills .resume-header {
+    width: 100px;
+    height: 100px;
+  }
+  #skills .resume-header h2 {
+    height: 100px;
+    width: 100px;
+    font-size: 1.8rem;
+    margin: 0;
+  }
+  #skills .my-skills .circle {
+    transform: scale(0.45);
+  }
+  #skills .my-skills .skills-html .skills {
+    width: 100px;
+    height: 100px;
+  }
+  #skills .my-skills .skills-html .skills .outer {
+    width: 70px;
+    height: 70px;
+  }
+  #skills .my-skills .skills-html .skills .inner {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+  }
+  #skills .my-skills .skills-html .skills .inner .number {
+    font-size: 1.1rem;
+  }
+  #skills .my-skills .skills-html .skills .inner .number img {
+    width: 40px;
+  }
+  #skills .my-skills .skills-css .skills {
+    width: 100px;
+    height: 100px;
+  }
+  #skills .my-skills .skills-css .skills .outer {
+    width: 70px;
+    height: 70px;
+  }
+  #skills .my-skills .skills-css .skills .inner {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+  }
+  #skills .my-skills .skills-css .skills .inner .number {
+    font-size: 1.1rem;
+  }
+  #skills .my-skills .skills-css .skills .inner .number img {
+    width: 40px;
+  }
+  #skills .my-skills .skills-sass .skills {
+    width: 100px;
+    height: 100px;
+  }
+  #skills .my-skills .skills-sass .skills .outer {
+    width: 70px;
+    height: 70px;
+  }
+  #skills .my-skills .skills-sass .skills .inner {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+  }
+  #skills .my-skills .skills-sass .skills .inner .number {
+    font-size: 1.1rem;
+  }
+  #skills .my-skills .skills-sass .skills .inner .number img {
+    width: 40px;
+  }
+  #skills .my-skills .skills-bootstrap .skills {
+    width: 100px;
+    height: 100px;
+  }
+  #skills .my-skills .skills-bootstrap .skills .outer {
+    width: 70px;
+    height: 70px;
+  }
+  #skills .my-skills .skills-bootstrap .skills .inner {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+  }
+  #skills .my-skills .skills-bootstrap .skills .inner .number {
+    font-size: 1.1rem;
+  }
+  #skills .my-skills .skills-bootstrap .skills .inner .number img {
+    width: 40px;
+  }
+  #skills .my-skills .skills-js .skills {
+    width: 100px;
+    height: 100px;
+  }
+  #skills .my-skills .skills-js .skills .outer {
+    width: 70px;
+    height: 70px;
+  }
+  #skills .my-skills .skills-js .skills .inner {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+  }
+  #skills .my-skills .skills-js .skills .inner .number {
+    font-size: 1.1rem;
+  }
+  #skills .my-skills .skills-js .skills .inner .number img {
+    width: 40px;
+  }
+  #skills .my-skills .skills-vue .skills {
+    width: 100px;
+    height: 100px;
+  }
+  #skills .my-skills .skills-vue .skills .outer {
+    width: 70px;
+    height: 70px;
+  }
+  #skills .my-skills .skills-vue .skills .inner {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+  }
+  #skills .my-skills .skills-vue .skills .inner .number {
+    font-size: 1.1rem;
+  }
+  #skills .my-skills .skills-vue .skills .inner .number img {
+    width: 40px;
+  }
+  #skills .my-skills .skills-react .skills {
+    width: 100px;
+    height: 100px;
+  }
+  #skills .my-skills .skills-react .skills .outer {
+    width: 70px;
+    height: 70px;
+  }
+  #skills .my-skills .skills-react .skills .inner {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+  }
+  #skills .my-skills .skills-react .skills .inner .number {
+    font-size: 1.1rem;
+  }
+  #skills .my-skills .skills-react .skills .inner .number img {
+    width: 40px;
+  }
+  #skills .my-skills .skills-angular .skills {
+    width: 100px;
+    height: 100px;
+  }
+  #skills .my-skills .skills-angular .skills .outer {
+    width: 70px;
+    height: 70px;
+  }
+  #skills .my-skills .skills-angular .skills .inner {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+  }
+  #skills .my-skills .skills-angular .skills .inner .number {
+    font-size: 1.1rem;
+  }
+  #skills .my-skills .skills-angular .skills .inner .number img {
+    width: 40px;
+  }
+  #skills .my-skills .skills-python .skills {
+    width: 100px;
+    height: 100px;
+  }
+  #skills .my-skills .skills-python .skills .outer {
+    width: 70px;
+    height: 70px;
+  }
+  #skills .my-skills .skills-python .skills .inner {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+  }
+  #skills .my-skills .skills-python .skills .inner .number {
+    font-size: 1.1rem;
+  }
+  #skills .my-skills .skills-python .skills .inner .number img {
+    width: 40px;
+  }
+  #skills .my-skills .skills-wordpress .skills {
+    width: 100px;
+    height: 100px;
+  }
+  #skills .my-skills .skills-wordpress .skills .outer {
+    width: 70px;
+    height: 70px;
+  }
+  #skills .my-skills .skills-wordpress .skills .inner {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+  }
+  #skills .my-skills .skills-wordpress .skills .inner .number {
+    font-size: 1.1rem;
+  }
+  #skills .my-skills .skills-wordpress .skills .inner .number img {
+    width: 40px;
+  }
+  #skills .my-skills .skills-git .skills {
+    width: 100px;
+    height: 100px;
+  }
+  #skills .my-skills .skills-git .skills .outer {
+    width: 70px;
+    height: 70px;
+  }
+  #skills .my-skills .skills-git .skills .inner {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+  }
+  #skills .my-skills .skills-git .skills .inner .number {
+    font-size: 1.1rem;
+  }
+  #skills .my-skills .skills-git .skills .inner .number img {
+    width: 40px;
+  }
+  #skills .my-skills .skills-github .skills {
+    width: 100px;
+    height: 100px;
+  }
+  #skills .my-skills .skills-github .skills .outer {
+    width: 70px;
+    height: 70px;
+  }
+  #skills .my-skills .skills-github .skills .inner {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+  }
+  #skills .my-skills .skills-github .skills .inner .number {
+    font-size: 1.1rem;
+  }
+  #skills .my-skills .skills-github .skills .inner .number img {
+    width: 40px;
+  }
+  #skills .my-skills .skills-figma .skills {
+    width: 100px;
+    height: 100px;
+  }
+  #skills .my-skills .skills-figma .skills .outer {
+    width: 70px;
+    height: 70px;
+  }
+  #skills .my-skills .skills-figma .skills .inner {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+  }
+  #skills .my-skills .skills-figma .skills .inner .number {
+    font-size: 1.1rem;
+  }
+  #skills .my-skills .skills-figma .skills .inner .number img {
+    width: 40px;
+  }
+  #skills .my-skills .skills-xd .skills {
+    width: 100px;
+    height: 100px;
+  }
+  #skills .my-skills .skills-xd .skills .outer {
+    width: 70px;
+    height: 70px;
+  }
+  #skills .my-skills .skills-xd .skills .inner {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+  }
+  #skills .my-skills .skills-xd .skills .inner .number {
+    font-size: 1.1rem;
+  }
+  #skills .my-skills .skills-xd .skills .inner .number img {
+    width: 40px;
+  }
+  #skills .my-skills .skills-ps .skills {
+    width: 100px;
+    height: 100px;
+  }
+  #skills .my-skills .skills-ps .skills .outer {
+    width: 70px;
+    height: 70px;
+  }
+  #skills .my-skills .skills-ps .skills .inner {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+  }
+  #skills .my-skills .skills-ps .skills .inner .number {
+    font-size: 1.1rem;
+  }
+  #skills .my-skills .skills-ps .skills .inner .number img {
+    width: 40px;
+  }
+  #skills .my-skills .skills-ai .skills {
+    width: 100px;
+    height: 100px;
+  }
+  #skills .my-skills .skills-ai .skills .outer {
+    width: 70px;
+    height: 70px;
+  }
+  #skills .my-skills .skills-ai .skills .inner {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+  }
+  #skills .my-skills .skills-ai .skills .inner .number {
+    font-size: 1.1rem;
+  }
+  #skills .my-skills .skills-ai .skills .inner .number img {
+    width: 40px;
+  }
+  #skills .my-skills .skills-br .skills {
+    width: 100px;
+    height: 100px;
+  }
+  #skills .my-skills .skills-br .skills .outer {
+    width: 70px;
+    height: 70px;
+  }
+  #skills .my-skills .skills-br .skills .inner {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+  }
+  #skills .my-skills .skills-br .skills .inner .number {
+    font-size: 1.1rem;
+  }
+  #skills .my-skills .skills-br .skills .inner .number img {
+    width: 40px;
+  }
+  #skills .my-skills .skills-ae .skills {
+    width: 100px;
+    height: 100px;
+  }
+  #skills .my-skills .skills-ae .skills .outer {
+    width: 70px;
+    height: 70px;
+  }
+  #skills .my-skills .skills-ae .skills .inner {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+  }
+  #skills .my-skills .skills-ae .skills .inner .number {
+    font-size: 1.1rem;
+  }
+  #skills .my-skills .skills-ae .skills .inner .number img {
+    width: 40px;
+  }
+  #skills .my-skills .skills-googleAna .skills {
+    width: 100px;
+    height: 100px;
+  }
+  #skills .my-skills .skills-googleAna .skills .outer {
+    width: 70px;
+    height: 70px;
+  }
+  #skills .my-skills .skills-googleAna .skills .inner {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+  }
+  #skills .my-skills .skills-googleAna .skills .inner .number {
+    font-size: 1.1rem;
+  }
+  #skills .my-skills .skills-googleAna .skills .inner .number img {
+    width: 40px;
+  }
+  #skills .my-skills .skills-seo .skills {
+    width: 100px;
+    height: 100px;
+  }
+  #skills .my-skills .skills-seo .skills .outer {
+    width: 70px;
+    height: 70px;
+  }
+  #skills .my-skills .skills-seo .skills .inner {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+  }
+  #skills .my-skills .skills-seo .skills .inner .number {
+    font-size: 1.1rem;
+  }
+  #skills .my-skills .skills-seo .skills .inner .number img {
+    width: 40px;
+  }
+
+  #portfolio .portfolio-header {
+    width: 150px;
+    height: 150px;
+  }
+  #portfolio .portfolio-header h2 {
+    height: 100px;
+    width: 100px;
+    font-size: 1.8rem;
+    margin-top: 1rem;
+    margin-left: 1.5rem;
+  }
+  #portfolio .main-portfolio-content .web-design {
+    width: 80%;
+    height: 15%;
+    border-radius: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 5;
+  }
+  #portfolio .main-portfolio-content .ui-ux-design {
+    width: 80%;
+    height: 15%;
+    border-radius: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 5;
+  }
+  #portfolio .main-portfolio-content .graphic-design {
+    width: 80%;
+    height: 15%;
+    border-radius: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 5;
+  }
+  #portfolio .main-portfolio-content {
+    justify-content: center;
+  }
+  #portfolio .main-portfolio-content div {
+    margin-bottom: 2rem;
+  }
+  #portfolio .main-portfolio-content div a {
+    font-size: 1.5rem;
+  }
+
+  #websiteDesignPage .web-design-header h2 {
+    font-size: 1.5rem;
+  }
+  #websiteDesignPage .website-preview {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+    height: 90%;
+  }
+  #websiteDesignPage .website-preview .site {
+    width: 40%;
+    height: 150px;
+  }
+  #websiteDesignPage .website-preview .site img {
+    width: 90%;
+    height: 60%;
+  }
+  #websiteDesignPage .website-preview .site a {
+    font-size: 0.6rem;
+    width: 62%;
+  }
+
+  #uiuxDesignPage .uiux-design-header h2 {
+    font-size: 1.5rem;
+  }
+  #uiuxDesignPage .uiux-preview {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+    height: 90%;
+  }
+  #uiuxDesignPage .uiux-preview .uiux {
+    width: 40%;
+    height: 150px;
+  }
+  #uiuxDesignPage .uiux-preview .uiux img {
+    width: 90%;
+    height: 60%;
+  }
+  #uiuxDesignPage .uiux-preview .uiux a {
+    font-size: 0.6rem;
+    width: 62%;
+  }
+
+  #graphicDesignPage .graphic-design-header h2 {
+    font-size: 1.5rem;
+  }
+  #graphicDesignPage .graphic-preview {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+    height: 90%;
+  }
+  #graphicDesignPage .graphic-preview .graphic {
+    width: 40%;
+    height: 150px;
+  }
+  #graphicDesignPage .graphic-preview .graphic img {
+    width: 90%;
+    height: 60%;
+  }
+  #graphicDesignPage .graphic-preview .graphic a {
+    font-size: 0.6rem;
+    width: 62%;
+  }
+
+  #contact .contact-header {
+    width: 150px;
+    height: 150px;
+  }
+  #contact .contact-header h2 {
+    width: 150px;
+    height: 150px;
+    margin-left: 2.5rem;
+    font-size: 2rem;
+  }
+  #contact .main-contact {
+    height: 80vh;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    z-index: 5;
+  }
+  #contact .main-contact .click-message {
+    padding: 1rem;
+    margin-top: 10rem;
+    margin-bottom: 0;
+  }
+  #contact .main-contact .click-message img {
+    width: 40px;
+    margin-right: 1rem;
+  }
+  #contact .main-contact .click-message p {
+    font-size: 1.2rem !important;
+    text-align: center;
+  }
+  #contact .main-contact div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #contact .main-contact div img {
+    width: 40px;
+  }
+  #contact .main-contact div a {
+    margin-left: 1rem;
+    font-size: 1rem;
+  }
+
+  #github .github-header {
+    display: none;
+  }
+  #github .click-message {
+    width: 90%;
+    margin: 1rem auto;
+  }
+  #github .click-message img {
+    width: 40px;
+    margin-right: 0.5rem;
+  }
+  #github .click-message p {
+    font-size: 1rem;
+    line-height: 30px;
+  }
+  #github .main-github {
+    height: 70vh;
+    width: 95%;
+  }
+  #github .main-github a {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    margin: 0.5rem;
+  }
+}/*# sourceMappingURL=main.css.map */

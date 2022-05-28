@@ -1,0 +1,3644 @@
+//import
+@import url(../node_modules/bootstrap-icons/font/bootstrap-icons.css);
+
+//variable
+$black: rgb(0, 0, 0);
+$dark: rgb(27, 27, 27);
+$darkTrans: rgba(0, 0, 0, 0.8);
+$darkTransLight: rgba(0, 0, 0, 0.55);
+$darkTransLighter: rgba(0, 0, 0, 0.3);
+$resumeBg: #2c2f33;
+$light: rgb(250, 235, 215);
+$lightTrans: rgba(255, 255, 255, 0.6);
+$red: rgb(168, 0, 64);
+$blue: rgb(0, 176, 192);
+
+//fonts
+@font-face {
+  font-family: "Dancing";
+  src: url("../font/Hand-writing/DancingScript-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: "Poiret";
+  src: url("../font/Display/PoiretOne-Regular.ttf");
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: $dark;
+  text-decoration: none;
+  list-style: none;
+  font-family: ArimaR;
+  font-size: 16px;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  transition: all 1s ease;
+  border: 0;
+  outline: 0;
+  font-family: Poiret;
+
+  &::-webkit-scrollbar {
+    width: 1px;
+    background-color: #000000;
+    border-radius: 50px;
+    scroll-behavior: smooth;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #9e9e9e;
+    border-radius: 50px;
+    height: 10px;
+    width: 10px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: Dancing;
+    color: $light;
+  }
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+
+  .container {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+  }
+}
+
+header {
+  position: relative;
+  scroll-snap-align: start;
+  background: url(../image/light-bg.webp) center center/cover no-repeat;
+  object-fit: cover;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+  background-attachment: fixed;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+    animation: homeAnimationBg 2s 1s forwards;
+
+    @keyframes homeAnimationBg {
+      0% {
+        background: transparent;
+      }
+      100% {
+        background: $darkTrans;
+      }
+    }
+  }
+
+  .logo {
+    img {
+      position: relative;
+      background-position: center center;
+      background-size: cover;
+      object-fit: cover;
+      width: 500px;
+      z-index: 2;
+      opacity: 0;
+      animation: logoAnimation 3s 2.5s forwards;
+
+      @keyframes logoAnimation {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+nav {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: start;
+  background: url(../image/dark-bg.webp) center center/cover no-repeat;
+  background-attachment: fixed;
+  z-index: 2;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+    animation: navAnimationBg 2s 2s forwards;
+
+    @keyframes navAnimationBg {
+      0% {
+        background: transparent;
+      }
+      100% {
+        background: $darkTransLighter;
+      }
+    }
+  }
+
+  .menuMessages {
+    position: absolute;
+    top: 50px;
+    background-color: $light;
+    color: $dark;
+    padding: 1rem;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    z-index: 2;
+    transition: opacity 1s ease;
+    opacity: 0;
+    text-align: center;
+  }
+
+  .menu {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    z-index: 10;
+    overflow: hidden;
+
+    li {
+      position: absolute;
+      left: 0;
+      transform-origin: 200px;
+      transition-delay: calc(0.1s * var(--i));
+      transform: rotate(0deg) translateX(150px);
+      overflow: hidden;
+    }
+
+    .toggle {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      background: $light;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: transform 1.5s;
+
+      i {
+        font-size: 3rem;
+
+        &:hover {
+          color: $red;
+        }
+      }
+    }
+  }
+  .menu.active .toggle {
+    transform: rotate(315deg);
+  }
+  .menu.active li {
+    transform: rotate(calc(360deg / 6 * var(--i)));
+  }
+  .menu li a {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $light;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin: 1rem;
+    transform: rotate(calc(360deg / -6 * var(--i)));
+
+    i {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: $dark;
+      &:hover {
+        color: $red;
+      }
+    }
+  }
+}
+
+#about {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  scroll-snap-align: start;
+  background: url(../image/about\ .webp) center center/cover no-repeat;
+  object-fit: cover;
+  background-attachment: fixed;
+  z-index: 0;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+    animation: aboutAnimationBg 2s 2s forwards;
+
+    @keyframes aboutAnimationBg {
+      0% {
+        background: transparent;
+      }
+      100% {
+        background: $darkTransLighter;
+      }
+    }
+  }
+
+  .back-to-menu {
+    i {
+      position: absolute;
+      z-index: 20;
+      bottom: 50px;
+      right: 50px;
+      color: $light;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+    .active-up {
+      transform: rotateZ(180deg);
+    }
+
+    strong {
+      position: absolute;
+      background-color: $light;
+      color: $black;
+      border-radius: 10px;
+      bottom: calc(75px - 2rem);
+      right: calc(120px - 2rem);
+      padding: 1rem;
+      z-index: 20;
+      opacity: 0;
+    }
+  }
+
+  .card {
+    position: relative;
+    width: 70%;
+    height: 430px;
+    z-index: 5;
+    margin: 3rem auto;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(
+      252.85deg,
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(255, 255, 255, 0.1) 100%
+    );
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    z-index: 3;
+
+    h1 {
+      font-size: 2.5rem;
+      text-align: center !important;
+      z-index: 20;
+    }
+
+    p {
+      font-size: 1.3rem;
+      line-height: 40px;
+      letter-spacing: 1px;
+    }
+    span {
+      display: block;
+      text-align: center !important;
+      font-size: 1.7rem;
+      padding: 1rem;
+    }
+
+    h1,
+    p,
+    span {
+      color: $black;
+      text-align: justify;
+      z-index: 2;
+      width: 90%;
+      margin: 0.5rem auto;
+      font-weight: 600;
+    }
+  }
+}
+
+#skills {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  scroll-snap-align: start;
+  background-color: $resumeBg;
+  background-attachment: fixed;
+
+  .resume-header {
+    position: absolute;
+    text-align: center;
+    left: 0;
+    top: 0;
+    width: 200px;
+    background-color: $light;
+    height: 200px;
+    clip-path: polygon(100% 0, 0 0, 0 100%);
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: center;
+
+    h2 {
+      height: 200px;
+      width: 200px;
+      font-size: 3.5rem;
+      color: $dark;
+      transform: rotate(-45deg);
+      margin-top: 1rem;
+      margin-left: 2rem;
+    }
+  }
+
+  .skill-percent {
+    position: absolute;
+    top: 40px;
+    width: 100%;
+    text-align: center;
+
+    strong {
+      color: $light;
+      font-size: 2rem;
+      letter-spacing: 5px;
+      opacity: 0;
+    }
+  }
+
+  .my-skills {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 87%;
+    width: 90%;
+    margin: 1rem auto;
+    margin-top: 5rem;
+
+    @mixin flex {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @mixin skillsMixin {
+      width: 180px;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    @mixin outerMixin {
+      width: 150px;
+      height: 150px;
+      background: #2c2f33;
+      box-shadow: -6px -6px 10px -1px #3b4451, 6px 6px 10px -1px #000000;
+      border-radius: 50%;
+    }
+    @mixin innerMixin {
+      width: 110px;
+      height: 110px;
+      margin: 20px;
+      background: #2c2f33;
+      box-shadow: inset -4px -4px 6px -1px #3b4451,
+        inset 4px 4px 6px -1px#000000;
+      border-radius: 50%;
+    }
+    @mixin numberMixin {
+      color: $light;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      font-size: 1.8rem;
+      font-weight: 900;
+      letter-spacing: 5px;
+      font-family: Dancing;
+    }
+    @mixin numberImageMixin {
+      z-index: 20;
+      width: 80px;
+      padding: 0.5rem;
+      margin-top: 0.2rem;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+    @mixin circleAnimationMixin {
+      position: absolute;
+      fill: none;
+      stroke-width: 20px;
+      stroke-dasharray: 600;
+      stroke-dashoffset: 600;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    @mixin circleSvgMixin {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .skills-html {
+      @include flex;
+
+      .rotate-bar-768 {
+        display: none;
+      }
+
+      .skills {
+        @include skillsMixin;
+
+        .outer {
+          @include outerMixin;
+        }
+
+        .inner {
+          @include innerMixin;
+
+          .number {
+            @include numberMixin;
+
+            img {
+              @include numberImageMixin;
+            }
+          }
+        }
+      }
+
+      circle {
+        @include circleAnimationMixin;
+        stroke: url(#Gradient-html);
+        animation: anim-html 2s linear 1s forwards;
+
+        @keyframes anim-html {
+          100% {
+            stroke-dashoffset: 230;
+          }
+        }
+      }
+      svg {
+        @include circleSvgMixin;
+      }
+    }
+
+    .skills-css {
+      @include flex;
+
+      .skills {
+        @include skillsMixin;
+
+        .outer {
+          @include outerMixin;
+        }
+
+        .inner {
+          @include innerMixin;
+
+          .number {
+            @include numberMixin;
+
+            img {
+              @include numberImageMixin;
+            }
+          }
+        }
+      }
+
+      circle {
+        @include circleAnimationMixin;
+        stroke: url(#Gradient-css);
+        animation: anim-css 2s linear 1s forwards;
+
+        @keyframes anim-css {
+          100% {
+            stroke-dashoffset: 230;
+          }
+        }
+      }
+      svg {
+        @include circleSvgMixin;
+      }
+    }
+
+    .skills-sass {
+      @include flex;
+
+      .skills {
+        @include skillsMixin;
+
+        .outer {
+          @include outerMixin;
+        }
+
+        .inner {
+          @include innerMixin;
+
+          .number {
+            @include numberMixin;
+
+            img {
+              @include numberImageMixin;
+            }
+          }
+        }
+      }
+
+      circle {
+        @include circleAnimationMixin;
+        stroke: url(#Gradient-sass);
+        animation: anim-sass 2s linear 1s forwards;
+
+        @keyframes anim-sass {
+          100% {
+            stroke-dashoffset: 240;
+          }
+        }
+      }
+      svg {
+        @include circleSvgMixin;
+      }
+    }
+
+    .skills-bootstrap {
+      @include flex;
+
+      .skills {
+        @include skillsMixin;
+
+        .outer {
+          @include outerMixin;
+        }
+
+        .inner {
+          @include innerMixin;
+
+          .number {
+            @include numberMixin;
+
+            img {
+              @include numberImageMixin;
+            }
+          }
+        }
+      }
+
+      circle {
+        @include circleAnimationMixin;
+        stroke: url(#Gradient-bootstrap);
+        animation: anim-bootstrap 2s linear 1s forwards;
+
+        @keyframes anim-bootstrap {
+          100% {
+            stroke-dashoffset: 240;
+          }
+        }
+      }
+      svg {
+        @include circleSvgMixin;
+      }
+    }
+
+    .skills-js {
+      @include flex;
+
+      .skills {
+        @include skillsMixin;
+
+        .outer {
+          @include outerMixin;
+        }
+
+        .inner {
+          @include innerMixin;
+
+          .number {
+            @include numberMixin;
+
+            img {
+              @include numberImageMixin;
+            }
+          }
+        }
+      }
+
+      circle {
+        @include circleAnimationMixin;
+        stroke: url(#Gradient-js);
+        animation: anim-js 2s linear 1s forwards;
+
+        @keyframes anim-js {
+          100% {
+            stroke-dashoffset: 240;
+          }
+        }
+      }
+      svg {
+        @include circleSvgMixin;
+      }
+    }
+
+    .skills-vue {
+      @include flex;
+
+      .skills {
+        @include skillsMixin;
+
+        .outer {
+          @include outerMixin;
+        }
+
+        .inner {
+          @include innerMixin;
+
+          .number {
+            @include numberMixin;
+
+            img {
+              @include numberImageMixin;
+            }
+          }
+        }
+      }
+
+      circle {
+        @include circleAnimationMixin;
+        stroke: url(#Gradient-vue);
+        animation: anim-vue 2s linear 1s forwards;
+
+        @keyframes anim-vue {
+          100% {
+            stroke-dashoffset: 260;
+          }
+        }
+      }
+      svg {
+        @include circleSvgMixin;
+      }
+    }
+
+    .skills-react {
+      @include flex;
+
+      .skills {
+        @include skillsMixin;
+
+        .outer {
+          @include outerMixin;
+        }
+
+        .inner {
+          @include innerMixin;
+
+          .number {
+            @include numberMixin;
+
+            img {
+              @include numberImageMixin;
+            }
+          }
+        }
+      }
+
+      circle {
+        @include circleAnimationMixin;
+        stroke: url(#Gradient-react);
+        animation: anim-react 2s linear 1s forwards;
+
+        @keyframes anim-react {
+          100% {
+            stroke-dashoffset: 280;
+          }
+        }
+      }
+      svg {
+        @include circleSvgMixin;
+      }
+    }
+
+    .skills-angular {
+      @include flex;
+
+      .skills {
+        @include skillsMixin;
+
+        .outer {
+          @include outerMixin;
+        }
+
+        .inner {
+          @include innerMixin;
+
+          .number {
+            @include numberMixin;
+
+            img {
+              @include numberImageMixin;
+            }
+          }
+        }
+      }
+
+      circle {
+        @include circleAnimationMixin;
+        stroke: url(#Gradient-angular);
+        animation: anim-angular 2s linear 1s forwards;
+
+        @keyframes anim-angular {
+          100% {
+            stroke-dashoffset: 260;
+          }
+        }
+      }
+      svg {
+        @include circleSvgMixin;
+      }
+    }
+
+    .skills-python {
+      @include flex;
+
+      .skills {
+        @include skillsMixin;
+
+        .outer {
+          @include outerMixin;
+        }
+
+        .inner {
+          @include innerMixin;
+
+          .number {
+            @include numberMixin;
+
+            img {
+              @include numberImageMixin;
+            }
+          }
+        }
+      }
+
+      circle {
+        @include circleAnimationMixin;
+        stroke: url(#Gradient-python);
+        animation: anim-python 2s linear 1s forwards;
+
+        @keyframes anim-python {
+          100% {
+            stroke-dashoffset: 280;
+          }
+        }
+      }
+      svg {
+        @include circleSvgMixin;
+      }
+    }
+
+    .skills-wordpress {
+      @include flex;
+
+      .skills {
+        @include skillsMixin;
+
+        .outer {
+          @include outerMixin;
+        }
+
+        .inner {
+          @include innerMixin;
+
+          .number {
+            @include numberMixin;
+
+            img {
+              @include numberImageMixin;
+            }
+          }
+        }
+      }
+
+      circle {
+        @include circleAnimationMixin;
+        stroke: url(#Gradient-wordpress);
+        animation: anim-wordpress 2s linear 1s forwards;
+
+        @keyframes anim-wordpress {
+          100% {
+            stroke-dashoffset: 230;
+          }
+        }
+      }
+      svg {
+        @include circleSvgMixin;
+      }
+    }
+
+    .skills-git {
+      @include flex;
+
+      .skills {
+        @include skillsMixin;
+
+        .outer {
+          @include outerMixin;
+        }
+
+        .inner {
+          @include innerMixin;
+
+          .number {
+            @include numberMixin;
+
+            img {
+              @include numberImageMixin;
+            }
+          }
+        }
+      }
+
+      circle {
+        @include circleAnimationMixin;
+        stroke: url(#Gradient-git);
+        animation: anim-git 2s linear 1s forwards;
+
+        @keyframes anim-git {
+          100% {
+            stroke-dashoffset: 260;
+          }
+        }
+      }
+      svg {
+        @include circleSvgMixin;
+      }
+    }
+
+    .skills-github {
+      @include flex;
+
+      .skills {
+        @include skillsMixin;
+
+        .outer {
+          @include outerMixin;
+        }
+
+        .inner {
+          @include innerMixin;
+
+          .number {
+            @include numberMixin;
+
+            img {
+              @include numberImageMixin;
+            }
+          }
+        }
+      }
+
+      circle {
+        @include circleAnimationMixin;
+        stroke: url(#Gradient-github);
+        animation: anim-github 2s linear 1s forwards;
+
+        @keyframes anim-github {
+          100% {
+            stroke-dashoffset: 230;
+          }
+        }
+      }
+      svg {
+        @include circleSvgMixin;
+      }
+    }
+
+    .skills-figma {
+      @include flex;
+
+      .skills {
+        @include skillsMixin;
+
+        .outer {
+          @include outerMixin;
+        }
+
+        .inner {
+          @include innerMixin;
+
+          .number {
+            @include numberMixin;
+
+            img {
+              @include numberImageMixin;
+            }
+          }
+        }
+      }
+
+      circle {
+        @include circleAnimationMixin;
+        stroke: url(#Gradient-figma);
+        animation: anim-figma 2s linear 1s forwards;
+
+        @keyframes anim-figma {
+          100% {
+            stroke-dashoffset: 230;
+          }
+        }
+      }
+      svg {
+        @include circleSvgMixin;
+      }
+    }
+
+    .skills-xd {
+      @include flex;
+
+      .skills {
+        @include skillsMixin;
+
+        .outer {
+          @include outerMixin;
+        }
+
+        .inner {
+          @include innerMixin;
+
+          .number {
+            @include numberMixin;
+
+            img {
+              @include numberImageMixin;
+            }
+          }
+        }
+      }
+
+      circle {
+        @include circleAnimationMixin;
+        stroke: url(#Gradient-xd);
+        animation: anim-xd 2s linear 1s forwards;
+
+        @keyframes anim-xd {
+          100% {
+            stroke-dashoffset: 230;
+          }
+        }
+      }
+      svg {
+        @include circleSvgMixin;
+      }
+    }
+
+    .skills-ps {
+      @include flex;
+
+      .skills {
+        @include skillsMixin;
+
+        .outer {
+          @include outerMixin;
+        }
+
+        .inner {
+          @include innerMixin;
+
+          .number {
+            @include numberMixin;
+
+            img {
+              @include numberImageMixin;
+            }
+          }
+        }
+      }
+
+      circle {
+        @include circleAnimationMixin;
+        stroke: url(#Gradient-ps);
+        animation: anim-ps 2s linear 1s forwards;
+
+        @keyframes anim-ps {
+          100% {
+            stroke-dashoffset: 290;
+          }
+        }
+      }
+      svg {
+        @include circleSvgMixin;
+      }
+    }
+
+    .skills-ai {
+      @include flex;
+
+      .skills {
+        @include skillsMixin;
+
+        .outer {
+          @include outerMixin;
+        }
+
+        .inner {
+          @include innerMixin;
+
+          .number {
+            @include numberMixin;
+
+            img {
+              @include numberImageMixin;
+            }
+          }
+        }
+      }
+
+      circle {
+        @include circleAnimationMixin;
+        stroke: url(#Gradient-ai);
+        animation: anim-ai 2s linear 1s forwards;
+
+        @keyframes anim-ai {
+          100% {
+            stroke-dashoffset: 290;
+          }
+        }
+      }
+      svg {
+        @include circleSvgMixin;
+      }
+    }
+
+    .skills-br {
+      @include flex;
+
+      .skills {
+        @include skillsMixin;
+
+        .outer {
+          @include outerMixin;
+        }
+
+        .inner {
+          @include innerMixin;
+
+          .number {
+            @include numberMixin;
+
+            img {
+              @include numberImageMixin;
+            }
+          }
+        }
+      }
+
+      circle {
+        @include circleAnimationMixin;
+        stroke: url(#Gradient-br);
+        animation: anim-br 2s linear 1s forwards;
+
+        @keyframes anim-br {
+          100% {
+            stroke-dashoffset: 240;
+          }
+        }
+      }
+      svg {
+        @include circleSvgMixin;
+      }
+    }
+
+    .skills-ae {
+      @include flex;
+
+      .skills {
+        @include skillsMixin;
+
+        .outer {
+          @include outerMixin;
+        }
+
+        .inner {
+          @include innerMixin;
+
+          .number {
+            @include numberMixin;
+
+            img {
+              @include numberImageMixin;
+            }
+          }
+        }
+      }
+
+      circle {
+        @include circleAnimationMixin;
+        stroke: url(#Gradient-ae);
+        animation: anim-ae 2s linear 1s forwards;
+
+        @keyframes anim-ae {
+          100% {
+            stroke-dashoffset: 320;
+          }
+        }
+      }
+      svg {
+        @include circleSvgMixin;
+      }
+    }
+
+    .skills-googleAna {
+      @include flex;
+
+      .skills {
+        @include skillsMixin;
+
+        .outer {
+          @include outerMixin;
+        }
+
+        .inner {
+          @include innerMixin;
+
+          .number {
+            @include numberMixin;
+
+            img {
+              @include numberImageMixin;
+            }
+          }
+        }
+      }
+
+      circle {
+        @include circleAnimationMixin;
+        stroke: url(#Gradient-googleAna);
+        animation: anim-googleAna 2s linear 1s forwards;
+
+        @keyframes anim-googleAna {
+          100% {
+            stroke-dashoffset: 290;
+          }
+        }
+      }
+      svg {
+        @include circleSvgMixin;
+      }
+    }
+
+    .skills-seo {
+      @include flex;
+
+      .skills {
+        @include skillsMixin;
+
+        .outer {
+          @include outerMixin;
+        }
+
+        .inner {
+          @include innerMixin;
+
+          .number {
+            @include numberMixin;
+
+            img {
+              @include numberImageMixin;
+            }
+          }
+        }
+      }
+
+      circle {
+        @include circleAnimationMixin;
+        stroke: url(#Gradient-seo);
+        animation: anim-seo 2s linear 1s forwards;
+
+        @keyframes anim-seo {
+          100% {
+            stroke-dashoffset: 240;
+          }
+        }
+      }
+      svg {
+        @include circleSvgMixin;
+      }
+    }
+  }
+
+  .back-to-menu {
+    i {
+      position: absolute;
+      z-index: 20;
+      bottom: 50px;
+      right: 50px;
+      color: $light;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+    .active-up {
+      transform: rotateZ(180deg);
+    }
+
+    strong {
+      position: absolute;
+      background-color: $light;
+      color: $black;
+      border-radius: 10px;
+      bottom: calc(75px - 2rem);
+      right: calc(120px - 2rem);
+      padding: 1rem;
+      z-index: 20;
+      opacity: 0;
+    }
+  }
+}
+
+//portfolio
+#portfolio {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  scroll-snap-align: start;
+  background: url(../image/red-sky.webp) center center/cover no-repeat;
+  object-fit: cover;
+  background-attachment: fixed;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+    animation: portfolioAnimationBg 2s 2s forwards;
+
+    @keyframes portfolioAnimationBg {
+      0% {
+        background: transparent;
+      }
+      100% {
+        background: $darkTrans;
+      }
+    }
+  }
+
+  .portfolio-header {
+    position: absolute;
+    text-align: center;
+    right: 0;
+    top: 0;
+    width: 300px;
+    height: 300px;
+    background-color: $light;
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: center;
+    z-index: 5;
+
+    h2 {
+      height: 300px;
+      width: 200px;
+      font-size: 3.5rem;
+      color: $dark;
+      transform: rotate(45deg);
+      margin-top: 2rem;
+      margin-left: 2rem;
+    }
+  }
+
+  .main-portfolio-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100vh;
+    z-index: 5;
+
+    div {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 1;
+
+      @mixin portfolioHover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $darkTrans;
+        z-index: -1;
+      }
+
+      .web-design-text,
+      .ui-ux-design-text,
+      .graphic-design-text {
+        @include portfolioHover;
+      }
+
+      a {
+        color: $light;
+        font-size: 3rem;
+        font-weight: 900;
+        letter-spacing: 3px;
+      }
+    }
+
+    @mixin portfolioMixin {
+      width: 40%;
+      height: 25%;
+      border-radius: 20px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: 5;
+    }
+
+    .web-design {
+      background: url(../image/web-design.webp);
+      background-position: bottom !important;
+      @include portfolioMixin;
+    }
+
+    .ui-ux-design {
+      background: url(../image/ui-ux.webp);
+      @include portfolioMixin;
+    }
+
+    .graphic-design {
+      background: url(../image/graphic-design.webp);
+      @include portfolioMixin;
+    }
+  }
+
+  .back-to-menu {
+    i {
+      position: absolute;
+      z-index: 20;
+      bottom: 50px;
+      right: 50px;
+      color: $light;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+    .active-up {
+      transform: rotateZ(180deg);
+    }
+
+    strong {
+      position: absolute;
+      background-color: $light;
+      color: $black;
+      border-radius: 10px;
+      bottom: calc(75px - 2rem);
+      right: calc(120px - 2rem);
+      padding: 1rem;
+      z-index: 20;
+      opacity: 0;
+    }
+  }
+}
+
+#websiteDesignPage {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  scroll-snap-align: start;
+  background: url(../image/web-design.webp) center center/cover no-repeat;
+  object-fit: cover;
+  background-attachment: fixed;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+    animation: websiteDesignAnimationBg 2s 2s forwards;
+
+    @keyframes websiteDesignAnimationBg {
+      0% {
+        background: transparent;
+      }
+      100% {
+        background: $darkTrans;
+      }
+    }
+  }
+
+  @mixin webDesignPage {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+  }
+
+  @mixin webDesignCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    background-color: $light;
+    width: 20%;
+    height: 300px;
+    border-radius: 20px;
+    margin: 1rem;
+
+    img {
+      width: 95%;
+      border-radius: 20px;
+    }
+
+    a {
+      padding: 0.5rem 1.5rem;
+      background-color: $red;
+      color: $light;
+      font-weight: 900;
+      letter-spacing: 3px;
+      border-radius: 50px;
+      cursor: pointer;
+      width: 40%;
+
+      &:hover {
+        width: 90%;
+      }
+    }
+  }
+
+  .web-design-header {
+    @include webDesignPage;
+
+    h2 {
+      font-size: 2.3rem;
+      margin: 1rem 0;
+    }
+  }
+
+  .website-preview {
+    @include webDesignPage;
+    height: 90%;
+
+    .site {
+      @include webDesignCard;
+    }
+  }
+}
+
+#uiuxDesignPage {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  scroll-snap-align: start;
+  background: url(../image/ui-ux.webp) center center/cover no-repeat;
+  object-fit: cover;
+  background-attachment: fixed;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+    animation: uiuxDesignAnimationBg 2s 2s forwards;
+
+    @keyframes uiuxDesignAnimationBg {
+      0% {
+        background: transparent;
+      }
+      100% {
+        background: $darkTrans;
+      }
+    }
+  }
+
+  @mixin uiuxDesignPage {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+  }
+
+  @mixin uiuxDesignCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    background-color: $light;
+    width: 20%;
+    height: 300px;
+    border-radius: 20px;
+    margin: 1rem;
+
+    img {
+      width: 95%;
+      border-radius: 20px;
+    }
+
+    a {
+      padding: 0.5rem 1.5rem;
+      background-color: $red;
+      color: $light;
+      font-weight: 900;
+      letter-spacing: 3px;
+      border-radius: 50px;
+      cursor: pointer;
+      width: 40%;
+
+      &:hover {
+        width: 90%;
+      }
+    }
+  }
+
+  .uiux-design-header {
+    @include uiuxDesignPage;
+
+    h2 {
+      font-size: 2.3rem;
+      margin: 1rem 0;
+    }
+  }
+
+  .uiux-preview {
+    @include uiuxDesignPage;
+    height: 90%;
+
+    .uiux {
+      @include uiuxDesignCard;
+    }
+  }
+}
+
+#graphicDesignPage {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  scroll-snap-align: start;
+  background: url(../image/graphic-design.webp) center center/cover no-repeat;
+  object-fit: cover;
+  background-attachment: fixed;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+    animation: graphicDesignAnimationBg 2s 2s forwards;
+
+    @keyframes graphicDesignAnimationBg {
+      0% {
+        background: transparent;
+      }
+      100% {
+        background: $darkTransLight;
+      }
+    }
+  }
+
+  @mixin graphicDesignPage {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+  }
+
+  @mixin graphicDesignCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    background-color: $light;
+    width: 20%;
+    height: 300px;
+    border-radius: 20px;
+    margin: 1rem;
+
+    img {
+      width: 95%;
+      border-radius: 20px;
+    }
+
+    a {
+      padding: 0.5rem 1.5rem;
+      background-color: $red;
+      color: $light;
+      font-weight: 900;
+      letter-spacing: 3px;
+      border-radius: 50px;
+      cursor: pointer;
+      width: 40%;
+
+      &:hover {
+        width: 90%;
+      }
+    }
+  }
+
+  .graphic-design-header {
+    @include graphicDesignPage;
+
+    h2 {
+      font-size: 2.3rem;
+      margin: 1rem 0;
+    }
+  }
+
+  .graphic-preview {
+    @include graphicDesignPage;
+    height: 90%;
+
+    .graphic {
+      @include graphicDesignCard;
+    }
+  }
+}
+
+//contact
+#contact {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  scroll-snap-align: start;
+  background: url(../image/contact.webp) center center/cover no-repeat;
+  object-fit: cover;
+  background-attachment: fixed;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+    animation: contactAnimationBg 2s 2s forwards;
+
+    @keyframes contactAnimationBg {
+      0% {
+        background: transparent;
+      }
+      100% {
+        background: $darkTrans;
+      }
+    }
+  }
+
+  .contact-header {
+    position: absolute;
+    text-align: center;
+    left: 0;
+    top: 0;
+    width: 200px;
+    background-color: $light;
+    height: 200px;
+    clip-path: polygon(100% 0, 0 0, 0 100%);
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: center;
+    z-index: 2;
+
+    h2 {
+      height: 200px;
+      width: 200px;
+      font-size: 3.5rem;
+      color: $dark;
+      transform: rotate(-45deg);
+      margin-top: 1rem;
+      margin-left: 2rem;
+    }
+  }
+
+  .main-contact {
+    position: relative;
+    height: 100vh;
+    width: 55%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    z-index: 5;
+
+    .click-message {
+      margin: 3rem 0;
+      background-color: $lightTrans;
+      padding: 1rem 2rem;
+      border-radius: 15px;
+
+      img {
+        width: 50px;
+        margin-right: 2rem;
+      }
+      p {
+        color: $light;
+        font-size: 2rem;
+        font-weight: 900 !important;
+        color: $black;
+      }
+    }
+
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 60px;
+      }
+
+      a {
+        color: $light;
+        margin-left: 2rem;
+        font-size: 1.5rem;
+        font-weight: 900;
+        letter-spacing: 5px;
+      }
+    }
+  }
+
+  .back-to-menu {
+    i {
+      position: absolute;
+      z-index: 25;
+      bottom: 50px;
+      right: 50px;
+      color: $light;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+    .active-up {
+      transform: rotateZ(180deg);
+    }
+
+    strong {
+      position: absolute;
+      background-color: $light;
+      color: $black;
+      border-radius: 10px;
+      bottom: calc(75px - 2rem);
+      right: calc(120px - 2rem);
+      padding: 1rem;
+      z-index: 20;
+      opacity: 0;
+    }
+  }
+}
+
+//github
+#github {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  scroll-snap-align: start;
+  background: url(../image/github.webp) center center/cover no-repeat;
+  object-fit: cover;
+  background-attachment: fixed;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+    animation: githubAnimationBg 2s 2s forwards;
+
+    @keyframes githubAnimationBg {
+      0% {
+        background: transparent;
+      }
+      100% {
+        background: $darkTrans;
+      }
+    }
+  }
+
+  .github-header {
+    position: absolute;
+    text-align: center;
+    right: 0;
+    top: 0;
+    width: 200px;
+    background-color: $light;
+    height: 200px;
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: center;
+    z-index: 2;
+
+    h2 {
+      height: 200px;
+      width: 200px;
+      font-size: 3.5rem;
+      color: $dark;
+      transform: rotate(45deg);
+      margin-top: 1rem;
+      margin-right: 2rem;
+    }
+  }
+
+  .click-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 5;
+    width: 70%;
+    margin: 3rem auto;
+    background-color: $darkTrans;
+    padding: 1rem 2rem;
+    border-radius: 15px;
+
+    img {
+      width: 50px;
+      margin-right: 2rem;
+    }
+    p {
+      font-size: 2rem;
+      font-weight: 900 !important;
+      color: $light;
+    }
+  }
+
+  .main-github {
+    position: relative;
+    height: 70vh;
+    width: 92%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+
+    a {
+      color: $light;
+      margin: 1rem;
+      padding: 0.5rem 1rem;
+      font-size: 1.5rem;
+      border: 2px solid $light;
+      border-radius: 10px;
+
+      &:hover {
+        background-color: $light;
+        color: $black;
+        font-weight: 900;
+        letter-spacing: 2px;
+      }
+    }
+  }
+
+  .back-to-menu {
+    i {
+      position: absolute;
+      z-index: 25;
+      bottom: 50px;
+      right: 50px;
+      color: $light;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+    .active-up {
+      transform: rotateZ(180deg);
+    }
+
+    strong {
+      position: absolute;
+      background-color: $light;
+      color: $black;
+      border-radius: 10px;
+      bottom: calc(75px - 2rem);
+      right: calc(120px - 2rem);
+      padding: 1rem;
+      z-index: 20;
+      opacity: 0;
+    }
+  }
+}
+
+//media query 1024px
+@media screen and (max-width: 1024px) {
+  //about
+  #about {
+    .card {
+      height: 530px;
+      margin-top: 6rem;
+    }
+  }
+
+  //portfolio
+  #portfolio {
+    .portfolio-header {
+      width: 250px;
+      height: 250px;
+
+      h2 {
+        height: 250px;
+        width: 200px;
+        margin: 0;
+        margin-top: 2rem;
+      }
+    }
+
+    .main-portfolio-content {
+      @mixin portfolioMixin {
+        width: 60%;
+        height: 20%;
+        border-radius: 20px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        z-index: 5;
+      }
+
+      .web-design {
+        @include portfolioMixin;
+      }
+
+      .ui-ux-design {
+        @include portfolioMixin;
+      }
+
+      .graphic-design {
+        @include portfolioMixin;
+      }
+    }
+  }
+
+  #websiteDesignPage {
+    @mixin webDesignPage {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      z-index: 5;
+    }
+
+    @mixin webDesignCard {
+      width: 30%;
+      height: 250px;
+      margin: 1rem;
+
+      img {
+        width: 90%;
+      }
+    }
+
+    .website-preview {
+      @include webDesignPage;
+      height: 90%;
+
+      .site {
+        @include webDesignCard;
+      }
+    }
+  }
+
+  #uiuxDesignPage {
+    @mixin uiuxDesignPage {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      z-index: 5;
+    }
+
+    @mixin uiuxDesignCard {
+      width: 30%;
+      height: 250px;
+      margin: 1rem;
+
+      img {
+        width: 90%;
+      }
+    }
+
+    .uiux-preview {
+      @include uiuxDesignPage;
+      height: 90%;
+
+      .uiux {
+        @include uiuxDesignCard;
+      }
+    }
+  }
+
+  #graphicDesignPage {
+    @mixin graphicDesignPage {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      z-index: 5;
+    }
+
+    @mixin graphicDesignCard {
+      width: 30%;
+      height: 250px;
+      margin: 1rem;
+
+      img {
+        width: 90%;
+      }
+    }
+
+    .graphic-preview {
+      @include graphicDesignPage;
+      height: 90%;
+
+      .graphic {
+        @include graphicDesignCard;
+      }
+    }
+  }
+
+  //contact
+  #contact {
+    .contact-header {
+      h2 {
+        font-size: 3rem;
+      }
+    }
+
+    .main-contact {
+      height: 90vh;
+      width: 80%;
+      margin: auto;
+      margin-top: 7vh;
+    }
+  }
+
+  //github
+  #github {
+    .click-message {
+      margin: auto;
+      margin-top: 5rem;
+      margin-bottom: 2rem;
+
+      img {
+        width: 50px;
+      }
+      p {
+        font-size: 1.5rem;
+        text-align: center;
+        line-height: 50px;
+      }
+    }
+
+    .main-github {
+      width: 80%;
+    }
+  }
+}
+
+//media query 768px
+@media screen and (max-width: 768px) {
+  //skills
+  #skills {
+    .skill-percent {
+      strong {
+        font-size: 1.5rem;
+      }
+    }
+    .my-skills {
+      @mixin skillsMixin {
+        width: 130px;
+        height: 130px;
+      }
+      @mixin outerMixin {
+        width: 100px;
+        height: 100px;
+      }
+      @mixin innerMixin {
+        width: 60px;
+        height: 60px;
+        margin: 20px;
+      }
+      @mixin numberMixin {
+        font-size: 1.3rem;
+      }
+      @mixin numberImageMixin {
+        width: 50px;
+      }
+
+      .circle {
+        transform: scale(0.6);
+      }
+
+      .skills-html {
+        .skills {
+          @include skillsMixin;
+
+          .outer {
+            @include outerMixin;
+          }
+
+          .inner {
+            @include innerMixin;
+
+            .number {
+              @include numberMixin;
+
+              img {
+                @include numberImageMixin;
+              }
+            }
+          }
+        }
+      }
+
+      .skills-css {
+        .skills {
+          @include skillsMixin;
+
+          .outer {
+            @include outerMixin;
+          }
+
+          .inner {
+            @include innerMixin;
+
+            .number {
+              @include numberMixin;
+
+              img {
+                @include numberImageMixin;
+              }
+            }
+          }
+        }
+      }
+
+      .skills-sass {
+        .skills {
+          @include skillsMixin;
+
+          .outer {
+            @include outerMixin;
+          }
+
+          .inner {
+            @include innerMixin;
+
+            .number {
+              @include numberMixin;
+
+              img {
+                @include numberImageMixin;
+              }
+            }
+          }
+        }
+      }
+
+      .skills-bootstrap {
+        .skills {
+          @include skillsMixin;
+
+          .outer {
+            @include outerMixin;
+          }
+
+          .inner {
+            @include innerMixin;
+
+            .number {
+              @include numberMixin;
+
+              img {
+                @include numberImageMixin;
+              }
+            }
+          }
+        }
+      }
+
+      .skills-js {
+        .skills {
+          @include skillsMixin;
+
+          .outer {
+            @include outerMixin;
+          }
+
+          .inner {
+            @include innerMixin;
+
+            .number {
+              @include numberMixin;
+
+              img {
+                @include numberImageMixin;
+              }
+            }
+          }
+        }
+      }
+
+      .skills-vue {
+        .skills {
+          @include skillsMixin;
+
+          .outer {
+            @include outerMixin;
+          }
+
+          .inner {
+            @include innerMixin;
+
+            .number {
+              @include numberMixin;
+
+              img {
+                @include numberImageMixin;
+              }
+            }
+          }
+        }
+      }
+
+      .skills-react {
+        .skills {
+          @include skillsMixin;
+
+          .outer {
+            @include outerMixin;
+          }
+
+          .inner {
+            @include innerMixin;
+
+            .number {
+              @include numberMixin;
+
+              img {
+                @include numberImageMixin;
+              }
+            }
+          }
+        }
+      }
+
+      .skills-angular {
+        .skills {
+          @include skillsMixin;
+
+          .outer {
+            @include outerMixin;
+          }
+
+          .inner {
+            @include innerMixin;
+
+            .number {
+              @include numberMixin;
+
+              img {
+                @include numberImageMixin;
+              }
+            }
+          }
+        }
+      }
+
+      .skills-python {
+        .skills {
+          @include skillsMixin;
+
+          .outer {
+            @include outerMixin;
+          }
+
+          .inner {
+            @include innerMixin;
+
+            .number {
+              @include numberMixin;
+
+              img {
+                @include numberImageMixin;
+              }
+            }
+          }
+        }
+      }
+
+      .skills-wordpress {
+        .skills {
+          @include skillsMixin;
+
+          .outer {
+            @include outerMixin;
+          }
+
+          .inner {
+            @include innerMixin;
+
+            .number {
+              @include numberMixin;
+
+              img {
+                @include numberImageMixin;
+              }
+            }
+          }
+        }
+      }
+
+      .skills-git {
+        .skills {
+          @include skillsMixin;
+
+          .outer {
+            @include outerMixin;
+          }
+
+          .inner {
+            @include innerMixin;
+
+            .number {
+              @include numberMixin;
+
+              img {
+                @include numberImageMixin;
+              }
+            }
+          }
+        }
+      }
+
+      .skills-github {
+        .skills {
+          @include skillsMixin;
+
+          .outer {
+            @include outerMixin;
+          }
+
+          .inner {
+            @include innerMixin;
+
+            .number {
+              @include numberMixin;
+
+              img {
+                @include numberImageMixin;
+              }
+            }
+          }
+        }
+      }
+
+      .skills-figma {
+        .skills {
+          @include skillsMixin;
+
+          .outer {
+            @include outerMixin;
+          }
+
+          .inner {
+            @include innerMixin;
+
+            .number {
+              @include numberMixin;
+
+              img {
+                @include numberImageMixin;
+              }
+            }
+          }
+        }
+      }
+
+      .skills-xd {
+        .skills {
+          @include skillsMixin;
+
+          .outer {
+            @include outerMixin;
+          }
+
+          .inner {
+            @include innerMixin;
+
+            .number {
+              @include numberMixin;
+
+              img {
+                @include numberImageMixin;
+              }
+            }
+          }
+        }
+      }
+
+      .skills-ps {
+        .skills {
+          @include skillsMixin;
+
+          .outer {
+            @include outerMixin;
+          }
+
+          .inner {
+            @include innerMixin;
+
+            .number {
+              @include numberMixin;
+
+              img {
+                @include numberImageMixin;
+              }
+            }
+          }
+        }
+      }
+
+      .skills-ai {
+        .skills {
+          @include skillsMixin;
+
+          .outer {
+            @include outerMixin;
+          }
+
+          .inner {
+            @include innerMixin;
+
+            .number {
+              @include numberMixin;
+
+              img {
+                @include numberImageMixin;
+              }
+            }
+          }
+        }
+      }
+
+      .skills-br {
+        .skills {
+          @include skillsMixin;
+
+          .outer {
+            @include outerMixin;
+          }
+
+          .inner {
+            @include innerMixin;
+
+            .number {
+              @include numberMixin;
+
+              img {
+                @include numberImageMixin;
+              }
+            }
+          }
+        }
+      }
+
+      .skills-ae {
+        .skills {
+          @include skillsMixin;
+
+          .outer {
+            @include outerMixin;
+          }
+
+          .inner {
+            @include innerMixin;
+
+            .number {
+              @include numberMixin;
+
+              img {
+                @include numberImageMixin;
+              }
+            }
+          }
+        }
+      }
+
+      .skills-googleAna {
+        .skills {
+          @include skillsMixin;
+
+          .outer {
+            @include outerMixin;
+          }
+
+          .inner {
+            @include innerMixin;
+
+            .number {
+              @include numberMixin;
+
+              img {
+                @include numberImageMixin;
+              }
+            }
+          }
+        }
+      }
+
+      .skills-seo {
+        .skills {
+          @include skillsMixin;
+
+          .outer {
+            @include outerMixin;
+          }
+
+          .inner {
+            @include innerMixin;
+
+            .number {
+              @include numberMixin;
+
+              img {
+                @include numberImageMixin;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //portfolio
+  #portfolio {
+    .main-portfolio-content {
+      justify-content: center;
+
+      div {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+
+  #websiteDesignPage {
+    @mixin webDesignPage {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      z-index: 5;
+    }
+
+    @mixin webDesignCard {
+      width: 27%;
+      height: 200px;
+      margin: 1rem;
+
+      img {
+        width: 90%;
+        height: 50%;
+        background-repeat: no-repeat;
+        object-fit: cover;
+      }
+    }
+
+    .website-preview {
+      @include webDesignPage;
+      height: 90%;
+
+      .site {
+        @include webDesignCard;
+
+        a {
+          text-align: center;
+          width: 60%;
+        }
+      }
+    }
+  }
+
+  #uiuxDesignPage {
+    @mixin uiuxDesignPage {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      z-index: 5;
+    }
+
+    @mixin uiuxDesignCard {
+      width: 27%;
+      height: 200px;
+      margin: 1rem;
+
+      img {
+        width: 90%;
+        height: 50%;
+        background-repeat: no-repeat;
+        object-fit: cover;
+      }
+    }
+
+    .uiux-preview {
+      @include uiuxDesignPage;
+      height: 90%;
+
+      .uiux {
+        @include uiuxDesignCard;
+
+        a {
+          text-align: center;
+          width: 60%;
+        }
+      }
+    }
+  }
+
+  #graphicDesignPage {
+    @mixin graphicDesignPage {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      z-index: 5;
+    }
+
+    @mixin graphicDesignCard {
+      width: 27%;
+      height: 200px;
+      margin: 1rem;
+
+      img {
+        width: 90%;
+        height: 50%;
+        background-repeat: no-repeat;
+        object-fit: cover;
+      }
+    }
+
+    .graphic-preview {
+      @include graphicDesignPage;
+      height: 90%;
+
+      .graphic {
+        @include graphicDesignCard;
+
+        a {
+          text-align: center;
+          width: 60%;
+        }
+      }
+    }
+  }
+
+  //contact
+  #contact {
+    .contact-header {
+      h2 {
+        font-size: 3rem;
+      }
+    }
+
+    .main-contact {
+      height: 80vh;
+      width: 90%;
+      margin-top: 15vh;
+    }
+
+    .click-message {
+      padding: 1rem;
+
+      img {
+        width: 50px;
+        margin-right: 1rem;
+      }
+
+      p {
+        font-size: 1.65rem !important;
+      }
+    }
+  }
+
+  //github
+  #github {
+    .github-header {
+      width: 200px;
+      height: 200px;
+    }
+
+    .click-message {
+      width: 70%;
+      padding: 1rem;
+      margin-right: 10rem;
+
+      img {
+        width: 40px;
+        margin-right: 1rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+    }
+
+    .main-github {
+      position: relative;
+      height: 70vh;
+      width: 95%;
+      overflow: hidden;
+    }
+  }
+}
+
+//media query 500px
+@media screen and (max-width: 500px) {
+  //header
+  header {
+    .logo {
+      img {
+        width: 300px;
+      }
+    }
+  }
+
+  //nav
+  nav {
+    .menuMessages {
+      font-size: 1rem;
+      padding: 0.7rem;
+      width: 90%;
+    }
+
+    .menu {
+      width: 350px;
+      height: 350px;
+
+      li {
+        transform-origin: 175px;
+        transform: rotate(0deg) translateX(125px);
+      }
+
+      .toggle {
+        width: 70px;
+        height: 70px;
+
+        i {
+          font-size: 2rem;
+        }
+      }
+    }
+    .menu li a {
+      i {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  //about
+  #about {
+    .card {
+      width: 90%;
+      height: 500px;
+      margin: 2rem auto;
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      p {
+        font-size: 1rem;
+        line-height: 30px;
+      }
+      span {
+        font-size: 1.2rem;
+        font-weight: 900;
+        padding: 0.5rem;
+        margin: 1rem auto;
+      }
+    }
+  }
+
+  //skills
+  #skills {
+    .resume-header {
+      width: 100px;
+      height: 100px;
+
+      h2 {
+        height: 100px;
+        width: 100px;
+        font-size: 1.8rem;
+        margin: 0;
+      }
+    }
+
+    .my-skills {
+      @mixin skillsMixin {
+        width: 100px;
+        height: 100px;
+      }
+      @mixin outerMixin {
+        width: 70px;
+        height: 70px;
+      }
+      @mixin innerMixin {
+        width: 50px;
+        height: 50px;
+        margin: 10px;
+      }
+      @mixin numberMixin {
+        font-size: 1.1rem;
+      }
+      @mixin numberImageMixin {
+        width: 40px;
+      }
+
+      .circle {
+        transform: scale(0.45);
+      }
+
+      .skills-html {
+        .skills {
+          @include skillsMixin;
+
+          .outer {
+            @include outerMixin;
+          }
+
+          .inner {
+            @include innerMixin;
+
+            .number {
+              @include numberMixin;
+
+              img {
+                @include numberImageMixin;
+              }
+            }
+          }
+        }
+      }
+
+      .skills-css {
+        .skills {
+          @include skillsMixin;
+
+          .outer {
+            @include outerMixin;
+          }
+
+          .inner {
+            @include innerMixin;
+
+            .number {
+              @include numberMixin;
+
+              img {
+                @include numberImageMixin;
+              }
+            }
+          }
+        }
+      }
+
+      .skills-sass {
+        .skills {
+          @include skillsMixin;
+
+          .outer {
+            @include outerMixin;
+          }
+
+          .inner {
+            @include innerMixin;
+
+            .number {
+              @include numberMixin;
+
+              img {
+                @include numberImageMixin;
+              }
+            }
+          }
+        }
+      }
+
+      .skills-bootstrap {
+        .skills {
+          @include skillsMixin;
+
+          .outer {
+            @include outerMixin;
+          }
+
+          .inner {
+            @include innerMixin;
+
+            .number {
+              @include numberMixin;
+
+              img {
+                @include numberImageMixin;
+              }
+            }
+          }
+        }
+      }
+
+      .skills-js {
+        .skills {
+          @include skillsMixin;
+
+          .outer {
+            @include outerMixin;
+          }
+
+          .inner {
+            @include innerMixin;
+
+            .number {
+              @include numberMixin;
+
+              img {
+                @include numberImageMixin;
+              }
+            }
+          }
+        }
+      }
+
+      .skills-vue {
+        .skills {
+          @include skillsMixin;
+
+          .outer {
+            @include outerMixin;
+          }
+
+          .inner {
+            @include innerMixin;
+
+            .number {
+              @include numberMixin;
+
+              img {
+                @include numberImageMixin;
+              }
+            }
+          }
+        }
+      }
+
+      .skills-react {
+        .skills {
+          @include skillsMixin;
+
+          .outer {
+            @include outerMixin;
+          }
+
+          .inner {
+            @include innerMixin;
+
+            .number {
+              @include numberMixin;
+
+              img {
+                @include numberImageMixin;
+              }
+            }
+          }
+        }
+      }
+
+      .skills-angular {
+        .skills {
+          @include skillsMixin;
+
+          .outer {
+            @include outerMixin;
+          }
+
+          .inner {
+            @include innerMixin;
+
+            .number {
+              @include numberMixin;
+
+              img {
+                @include numberImageMixin;
+              }
+            }
+          }
+        }
+      }
+
+      .skills-python {
+        .skills {
+          @include skillsMixin;
+
+          .outer {
+            @include outerMixin;
+          }
+
+          .inner {
+            @include innerMixin;
+
+            .number {
+              @include numberMixin;
+
+              img {
+                @include numberImageMixin;
+              }
+            }
+          }
+        }
+      }
+
+      .skills-wordpress {
+        .skills {
+          @include skillsMixin;
+
+          .outer {
+            @include outerMixin;
+          }
+
+          .inner {
+            @include innerMixin;
+
+            .number {
+              @include numberMixin;
+
+              img {
+                @include numberImageMixin;
+              }
+            }
+          }
+        }
+      }
+
+      .skills-git {
+        .skills {
+          @include skillsMixin;
+
+          .outer {
+            @include outerMixin;
+          }
+
+          .inner {
+            @include innerMixin;
+
+            .number {
+              @include numberMixin;
+
+              img {
+                @include numberImageMixin;
+              }
+            }
+          }
+        }
+      }
+
+      .skills-github {
+        .skills {
+          @include skillsMixin;
+
+          .outer {
+            @include outerMixin;
+          }
+
+          .inner {
+            @include innerMixin;
+
+            .number {
+              @include numberMixin;
+
+              img {
+                @include numberImageMixin;
+              }
+            }
+          }
+        }
+      }
+
+      .skills-figma {
+        .skills {
+          @include skillsMixin;
+
+          .outer {
+            @include outerMixin;
+          }
+
+          .inner {
+            @include innerMixin;
+
+            .number {
+              @include numberMixin;
+
+              img {
+                @include numberImageMixin;
+              }
+            }
+          }
+        }
+      }
+
+      .skills-xd {
+        .skills {
+          @include skillsMixin;
+
+          .outer {
+            @include outerMixin;
+          }
+
+          .inner {
+            @include innerMixin;
+
+            .number {
+              @include numberMixin;
+
+              img {
+                @include numberImageMixin;
+              }
+            }
+          }
+        }
+      }
+
+      .skills-ps {
+        .skills {
+          @include skillsMixin;
+
+          .outer {
+            @include outerMixin;
+          }
+
+          .inner {
+            @include innerMixin;
+
+            .number {
+              @include numberMixin;
+
+              img {
+                @include numberImageMixin;
+              }
+            }
+          }
+        }
+      }
+
+      .skills-ai {
+        .skills {
+          @include skillsMixin;
+
+          .outer {
+            @include outerMixin;
+          }
+
+          .inner {
+            @include innerMixin;
+
+            .number {
+              @include numberMixin;
+
+              img {
+                @include numberImageMixin;
+              }
+            }
+          }
+        }
+      }
+
+      .skills-br {
+        .skills {
+          @include skillsMixin;
+
+          .outer {
+            @include outerMixin;
+          }
+
+          .inner {
+            @include innerMixin;
+
+            .number {
+              @include numberMixin;
+
+              img {
+                @include numberImageMixin;
+              }
+            }
+          }
+        }
+      }
+
+      .skills-ae {
+        .skills {
+          @include skillsMixin;
+
+          .outer {
+            @include outerMixin;
+          }
+
+          .inner {
+            @include innerMixin;
+
+            .number {
+              @include numberMixin;
+
+              img {
+                @include numberImageMixin;
+              }
+            }
+          }
+        }
+      }
+
+      .skills-googleAna {
+        .skills {
+          @include skillsMixin;
+
+          .outer {
+            @include outerMixin;
+          }
+
+          .inner {
+            @include innerMixin;
+
+            .number {
+              @include numberMixin;
+
+              img {
+                @include numberImageMixin;
+              }
+            }
+          }
+        }
+      }
+
+      .skills-seo {
+        .skills {
+          @include skillsMixin;
+
+          .outer {
+            @include outerMixin;
+          }
+
+          .inner {
+            @include innerMixin;
+
+            .number {
+              @include numberMixin;
+
+              img {
+                @include numberImageMixin;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //portfolio
+  #portfolio {
+    .portfolio-header {
+      width: 150px;
+      height: 150px;
+
+      h2 {
+        height: 100px;
+        width: 100px;
+        font-size: 1.8rem;
+        margin-top: 1rem;
+        margin-left: 1.5rem;
+      }
+    }
+
+    .main-portfolio-content {
+      @mixin portfolioMixin {
+        width: 80%;
+        height: 15%;
+        border-radius: 20px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        z-index: 5;
+      }
+
+      .web-design {
+        @include portfolioMixin;
+      }
+
+      .ui-ux-design {
+        @include portfolioMixin;
+      }
+
+      .graphic-design {
+        @include portfolioMixin;
+      }
+    }
+
+    .main-portfolio-content {
+      justify-content: center;
+
+      div {
+        margin-bottom: 2rem;
+
+        a {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+
+  #websiteDesignPage {
+    .web-design-header {
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+
+    @mixin webDesignPage {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      z-index: 5;
+    }
+
+    @mixin webDesignCard {
+      width: 40%;
+      height: 150px;
+
+      img {
+        width: 90%;
+        height: 60%;
+      }
+    }
+
+    .website-preview {
+      @include webDesignPage;
+      height: 90%;
+
+      .site {
+        @include webDesignCard;
+
+        a {
+          font-size: 0.6rem;
+          width: 62%;
+        }
+      }
+    }
+  }
+
+  #uiuxDesignPage {
+    .uiux-design-header {
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+
+    @mixin uiuxDesignPage {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      z-index: 5;
+    }
+
+    @mixin uiuxDesignCard {
+      width: 40%;
+      height: 150px;
+
+      img {
+        width: 90%;
+        height: 60%;
+      }
+    }
+
+    .uiux-preview {
+      @include uiuxDesignPage;
+      height: 90%;
+
+      .uiux {
+        @include uiuxDesignCard;
+
+        a {
+          font-size: 0.6rem;
+          width: 62%;
+        }
+      }
+    }
+  }
+
+  #graphicDesignPage {
+    .graphic-design-header {
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+
+    @mixin graphicDesignPage {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      z-index: 5;
+    }
+
+    @mixin graphicDesignCard {
+      width: 40%;
+      height: 150px;
+
+      img {
+        width: 90%;
+        height: 60%;
+      }
+    }
+
+    .graphic-preview {
+      @include graphicDesignPage;
+      height: 90%;
+
+      .graphic {
+        @include graphicDesignCard;
+
+        a {
+          font-size: 0.6rem;
+          width: 62%;
+        }
+      }
+    }
+  }
+
+  //contact
+  #contact {
+    .contact-header {
+      width: 150px;
+      height: 150px;
+
+      h2 {
+        width: 150px;
+        height: 150px;
+        margin-left: 2.5rem;
+        font-size: 2rem;
+      }
+    }
+
+    .main-contact {
+      height: 80vh;
+      width: 90%;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: flex-start;
+      z-index: 5;
+
+      .click-message {
+        padding: 1rem;
+        margin-top: 10rem;
+        margin-bottom: 0;
+
+        img {
+          width: 40px;
+          margin-right: 1rem;
+        }
+        p {
+          font-size: 1.2rem !important;
+          text-align: center;
+        }
+      }
+
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+          width: 40px;
+        }
+
+        a {
+          margin-left: 1rem;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+  //github
+  #github {
+    .github-header {
+      display: none;
+    }
+
+    .click-message {
+      width: 90%;
+      margin: 1rem auto;
+
+      img {
+        width: 40px;
+        margin-right: 0.5rem;
+      }
+      p {
+        font-size: 1rem;
+        line-height: 30px;
+      }
+    }
+
+    .main-github {
+      height: 70vh;
+      width: 95%;
+
+      a {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+        margin: 0.5rem;
+      }
+    }
+  }
+}
