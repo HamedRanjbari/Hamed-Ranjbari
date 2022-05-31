@@ -3373,6 +3373,11 @@ nav .menu li a i:hover {
     font-size: 1.8rem;
     margin: 0;
   }
+  #skills .my-skills {
+    display: flex;
+    height: 80vh;
+    margin-top: 3rem;
+  }
   #skills .my-skills .circle {
     transform: scale(0.45);
   }
@@ -3680,24 +3685,8 @@ nav .menu li a i:hover {
   #skills .my-skills .skills-ai .skills .inner .number img {
     width: 40px;
   }
-  #skills .my-skills .skills-br .skills {
-    width: 100px;
-    height: 100px;
-  }
-  #skills .my-skills .skills-br .skills .outer {
-    width: 70px;
-    height: 70px;
-  }
-  #skills .my-skills .skills-br .skills .inner {
-    width: 50px;
-    height: 50px;
-    margin: 10px;
-  }
-  #skills .my-skills .skills-br .skills .inner .number {
-    font-size: 1.1rem;
-  }
-  #skills .my-skills .skills-br .skills .inner .number img {
-    width: 40px;
+  #skills .my-skills .skills-br {
+    display: none;
   }
   #skills .my-skills .skills-ae .skills {
     width: 100px;
@@ -3718,24 +3707,8 @@ nav .menu li a i:hover {
   #skills .my-skills .skills-ae .skills .inner .number img {
     width: 40px;
   }
-  #skills .my-skills .skills-googleAna .skills {
-    width: 100px;
-    height: 100px;
-  }
-  #skills .my-skills .skills-googleAna .skills .outer {
-    width: 70px;
-    height: 70px;
-  }
-  #skills .my-skills .skills-googleAna .skills .inner {
-    width: 50px;
-    height: 50px;
-    margin: 10px;
-  }
-  #skills .my-skills .skills-googleAna .skills .inner .number {
-    font-size: 1.1rem;
-  }
-  #skills .my-skills .skills-googleAna .skills .inner .number img {
-    width: 40px;
+  #skills .my-skills .skills-googleAna {
+    display: none;
   }
   #skills .my-skills .skills-seo .skills {
     width: 100px;
@@ -3830,6 +3803,9 @@ nav .menu li a i:hover {
     font-size: 0.6rem;
     width: 62%;
   }
+  #websiteDesignPage .website-preview .four, #websiteDesignPage .website-preview .five {
+    display: none;
+  }
 
   #uiuxDesignPage .uiux-design-header h2 {
     font-size: 1.5rem;
@@ -3856,6 +3832,9 @@ nav .menu li a i:hover {
     font-size: 0.6rem;
     width: 62%;
   }
+  #uiuxDesignPage .uiux-preview .uiux-three, #uiuxDesignPage .uiux-preview .uiux-four {
+    display: none;
+  }
 
   #graphicDesignPage .graphic-design-header h2 {
     font-size: 1.5rem;
@@ -3881,6 +3860,9 @@ nav .menu li a i:hover {
   #graphicDesignPage .graphic-preview .graphic a {
     font-size: 0.6rem;
     width: 62%;
+  }
+  #graphicDesignPage .graphic-preview .logo-one, #graphicDesignPage .graphic-preview .logo-two {
+    display: none;
   }
 
   #contact .contact-header {
