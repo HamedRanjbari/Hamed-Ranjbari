@@ -3953,4 +3953,630 @@ nav .menu li a i:hover {
     font-size: 0.8rem;
     margin: 0.5rem;
   }
-}/*# sourceMappingURL=main.css.map */
+}
+
+@media screen and (min-width: 299px) and (max-width: 374px) {
+  header .logo img {
+    width: 250px;
+  }
+
+  nav .menuMessages {
+    font-size: 1rem;
+    padding: 0.7rem;
+    width: 90%;
+  }
+  nav .menu {
+    width: 300px;
+    height: 300px;
+  }
+  nav .menu li {
+    transform-origin: 150px;
+    transform: rotate(0deg) translateX(105px);
+  }
+
+  #about .card {
+    height: 400px;
+    margin: 1rem auto;
+  }
+  #about .card p {
+    font-size: 0.8rem;
+    line-height: 25px;
+  }
+  #about .card span {
+    font-size: 1rem;
+    margin: 1rem auto;
+  }
+
+  #skills .resume-header {
+    width: 80px;
+    height: 80px;
+  }
+  #skills .resume-header h2 {
+    height: 90px;
+    width: 90px;
+    font-size: 1.5rem;
+    margin-left: 1rem;
+  }
+  #skills .my-skills {
+    display: flex;
+    height: 85%;
+    margin: 2rem auto;
+  }
+  #skills .my-skills .circle {
+    transform: scale(0.38);
+  }
+  #skills .my-skills .skills-html .skills {
+    width: 80px;
+    height: 80px;
+    margin-top: 0 !important;
+  }
+  #skills .my-skills .skills-html .skills .outer {
+    width: 60px;
+    height: 60px;
+  }
+  #skills .my-skills .skills-html .skills .inner {
+    width: 40px;
+    height: 40px;
+  }
+  #skills .my-skills .skills-html .skills .inner .number {
+    font-size: 1rem;
+  }
+  #skills .my-skills .skills-html .skills .inner .number img {
+    width: 35px;
+  }
+  #skills .my-skills .skills-css .skills {
+    width: 80px;
+    height: 80px;
+    margin-top: 0 !important;
+  }
+  #skills .my-skills .skills-css .skills .outer {
+    width: 60px;
+    height: 60px;
+  }
+  #skills .my-skills .skills-css .skills .inner {
+    width: 40px;
+    height: 40px;
+  }
+  #skills .my-skills .skills-css .skills .inner .number {
+    font-size: 1rem;
+  }
+  #skills .my-skills .skills-css .skills .inner .number img {
+    width: 35px;
+  }
+  #skills .my-skills .skills-sass .skills {
+    width: 80px;
+    height: 80px;
+    margin-top: 0 !important;
+  }
+  #skills .my-skills .skills-sass .skills .outer {
+    width: 60px;
+    height: 60px;
+  }
+  #skills .my-skills .skills-sass .skills .inner {
+    width: 40px;
+    height: 40px;
+  }
+  #skills .my-skills .skills-sass .skills .inner .number {
+    font-size: 1rem;
+  }
+  #skills .my-skills .skills-sass .skills .inner .number img {
+    width: 35px;
+  }
+  #skills .my-skills .skills-bootstrap .skills {
+    width: 80px;
+    height: 80px;
+    margin-top: 0 !important;
+  }
+  #skills .my-skills .skills-bootstrap .skills .outer {
+    width: 60px;
+    height: 60px;
+  }
+  #skills .my-skills .skills-bootstrap .skills .inner {
+    width: 40px;
+    height: 40px;
+  }
+  #skills .my-skills .skills-bootstrap .skills .inner .number {
+    font-size: 1rem;
+  }
+  #skills .my-skills .skills-bootstrap .skills .inner .number img {
+    width: 35px;
+  }
+  #skills .my-skills .skills-js .skills {
+    width: 80px;
+    height: 80px;
+    margin-top: 0 !important;
+  }
+  #skills .my-skills .skills-js .skills .outer {
+    width: 60px;
+    height: 60px;
+  }
+  #skills .my-skills .skills-js .skills .inner {
+    width: 40px;
+    height: 40px;
+  }
+  #skills .my-skills .skills-js .skills .inner .number {
+    font-size: 1rem;
+  }
+  #skills .my-skills .skills-js .skills .inner .number img {
+    width: 35px;
+  }
+  #skills .my-skills .skills-vue .skills {
+    width: 80px;
+    height: 80px;
+    margin-top: 0 !important;
+  }
+  #skills .my-skills .skills-vue .skills .outer {
+    width: 60px;
+    height: 60px;
+  }
+  #skills .my-skills .skills-vue .skills .inner {
+    width: 40px;
+    height: 40px;
+  }
+  #skills .my-skills .skills-vue .skills .inner .number {
+    font-size: 1rem;
+  }
+  #skills .my-skills .skills-vue .skills .inner .number img {
+    width: 35px;
+  }
+  #skills .my-skills .skills-react .skills {
+    width: 80px;
+    height: 80px;
+    margin-top: 0 !important;
+  }
+  #skills .my-skills .skills-react .skills .outer {
+    width: 60px;
+    height: 60px;
+  }
+  #skills .my-skills .skills-react .skills .inner {
+    width: 40px;
+    height: 40px;
+  }
+  #skills .my-skills .skills-react .skills .inner .number {
+    font-size: 1rem;
+  }
+  #skills .my-skills .skills-react .skills .inner .number img {
+    width: 35px;
+  }
+  #skills .my-skills .skills-angular .skills {
+    width: 80px;
+    height: 80px;
+    margin-top: 0 !important;
+  }
+  #skills .my-skills .skills-angular .skills .outer {
+    width: 60px;
+    height: 60px;
+  }
+  #skills .my-skills .skills-angular .skills .inner {
+    width: 40px;
+    height: 40px;
+  }
+  #skills .my-skills .skills-angular .skills .inner .number {
+    font-size: 1rem;
+  }
+  #skills .my-skills .skills-angular .skills .inner .number img {
+    width: 35px;
+  }
+  #skills .my-skills .skills-python .skills {
+    width: 80px;
+    height: 80px;
+    margin-top: 0 !important;
+  }
+  #skills .my-skills .skills-python .skills .outer {
+    width: 60px;
+    height: 60px;
+  }
+  #skills .my-skills .skills-python .skills .inner {
+    width: 40px;
+    height: 40px;
+  }
+  #skills .my-skills .skills-python .skills .inner .number {
+    font-size: 1rem;
+  }
+  #skills .my-skills .skills-python .skills .inner .number img {
+    width: 35px;
+  }
+  #skills .my-skills .skills-wordpress .skills {
+    width: 80px;
+    height: 80px;
+    margin-top: 0 !important;
+  }
+  #skills .my-skills .skills-wordpress .skills .outer {
+    width: 60px;
+    height: 60px;
+  }
+  #skills .my-skills .skills-wordpress .skills .inner {
+    width: 40px;
+    height: 40px;
+  }
+  #skills .my-skills .skills-wordpress .skills .inner .number {
+    font-size: 1rem;
+  }
+  #skills .my-skills .skills-wordpress .skills .inner .number img {
+    width: 35px;
+  }
+  #skills .my-skills .skills-git .skills {
+    width: 80px;
+    height: 80px;
+    margin-top: 0 !important;
+  }
+  #skills .my-skills .skills-git .skills .outer {
+    width: 60px;
+    height: 60px;
+  }
+  #skills .my-skills .skills-git .skills .inner {
+    width: 40px;
+    height: 40px;
+  }
+  #skills .my-skills .skills-git .skills .inner .number {
+    font-size: 1rem;
+  }
+  #skills .my-skills .skills-git .skills .inner .number img {
+    width: 35px;
+  }
+  #skills .my-skills .skills-github .skills {
+    width: 80px;
+    height: 80px;
+    margin-top: 0 !important;
+  }
+  #skills .my-skills .skills-github .skills .outer {
+    width: 60px;
+    height: 60px;
+  }
+  #skills .my-skills .skills-github .skills .inner {
+    width: 40px;
+    height: 40px;
+  }
+  #skills .my-skills .skills-github .skills .inner .number {
+    font-size: 1rem;
+  }
+  #skills .my-skills .skills-github .skills .inner .number img {
+    width: 35px;
+  }
+  #skills .my-skills .skills-figma .skills {
+    width: 80px;
+    height: 80px;
+    margin-top: 0 !important;
+  }
+  #skills .my-skills .skills-figma .skills .outer {
+    width: 60px;
+    height: 60px;
+  }
+  #skills .my-skills .skills-figma .skills .inner {
+    width: 40px;
+    height: 40px;
+  }
+  #skills .my-skills .skills-figma .skills .inner .number {
+    font-size: 1rem;
+  }
+  #skills .my-skills .skills-figma .skills .inner .number img {
+    width: 35px;
+  }
+  #skills .my-skills .skills-xd .skills {
+    width: 80px;
+    height: 80px;
+    margin-top: 0 !important;
+  }
+  #skills .my-skills .skills-xd .skills .outer {
+    width: 60px;
+    height: 60px;
+  }
+  #skills .my-skills .skills-xd .skills .inner {
+    width: 40px;
+    height: 40px;
+  }
+  #skills .my-skills .skills-xd .skills .inner .number {
+    font-size: 1rem;
+  }
+  #skills .my-skills .skills-xd .skills .inner .number img {
+    width: 35px;
+  }
+  #skills .my-skills .skills-ps .skills {
+    width: 80px;
+    height: 80px;
+    margin-top: 0 !important;
+  }
+  #skills .my-skills .skills-ps .skills .outer {
+    width: 60px;
+    height: 60px;
+  }
+  #skills .my-skills .skills-ps .skills .inner {
+    width: 40px;
+    height: 40px;
+  }
+  #skills .my-skills .skills-ps .skills .inner .number {
+    font-size: 1rem;
+  }
+  #skills .my-skills .skills-ps .skills .inner .number img {
+    width: 35px;
+  }
+  #skills .my-skills .skills-ai .skills {
+    width: 80px;
+    height: 80px;
+    margin-top: 0 !important;
+  }
+  #skills .my-skills .skills-ai .skills .outer {
+    width: 60px;
+    height: 60px;
+  }
+  #skills .my-skills .skills-ai .skills .inner {
+    width: 40px;
+    height: 40px;
+  }
+  #skills .my-skills .skills-ai .skills .inner .number {
+    font-size: 1rem;
+  }
+  #skills .my-skills .skills-ai .skills .inner .number img {
+    width: 35px;
+  }
+  #skills .my-skills .skills-br {
+    display: none;
+  }
+  #skills .my-skills .skills-ae .skills {
+    width: 80px;
+    height: 80px;
+    margin-top: 0 !important;
+  }
+  #skills .my-skills .skills-ae .skills .outer {
+    width: 60px;
+    height: 60px;
+  }
+  #skills .my-skills .skills-ae .skills .inner {
+    width: 40px;
+    height: 40px;
+  }
+  #skills .my-skills .skills-ae .skills .inner .number {
+    font-size: 1rem;
+  }
+  #skills .my-skills .skills-ae .skills .inner .number img {
+    width: 35px;
+  }
+  #skills .my-skills .skills-googleAna {
+    display: none;
+  }
+  #skills .my-skills .skills-seo .skills {
+    width: 80px;
+    height: 80px;
+    margin-top: 0 !important;
+  }
+  #skills .my-skills .skills-seo .skills .outer {
+    width: 60px;
+    height: 60px;
+  }
+  #skills .my-skills .skills-seo .skills .inner {
+    width: 40px;
+    height: 40px;
+  }
+  #skills .my-skills .skills-seo .skills .inner .number {
+    font-size: 1rem;
+  }
+  #skills .my-skills .skills-seo .skills .inner .number img {
+    width: 35px;
+  }
+  #skills .back-to-menu i {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 1rem;
+  }
+
+  #portfolio .portfolio-header {
+    width: 100px;
+    height: 100px;
+  }
+  #portfolio .portfolio-header h2 {
+    height: 80px;
+    width: 80px;
+    font-size: 1.4rem;
+    margin-left: 0.5rem;
+  }
+  #portfolio .back-to-menu i {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    font-size: 1.5rem;
+  }
+  #portfolio .main-portfolio-content .web-design {
+    width: 70%;
+    height: 20%;
+  }
+  #portfolio .main-portfolio-content .ui-ux-design {
+    width: 70%;
+    height: 20%;
+  }
+  #portfolio .main-portfolio-content .graphic-design {
+    width: 70%;
+    height: 20%;
+  }
+  #portfolio .main-portfolio-content {
+    justify-content: center;
+  }
+  #portfolio .main-portfolio-content div {
+    margin-bottom: 2rem;
+  }
+  #portfolio .main-portfolio-content div a {
+    font-size: 1.2rem;
+  }
+
+  #websiteDesignPage .web-design-header h2 {
+    font-size: 1.2rem;
+  }
+  #websiteDesignPage .back-to-menu i {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    font-size: 1.5rem;
+  }
+  #websiteDesignPage .website-preview {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+    height: 90%;
+  }
+  #websiteDesignPage .website-preview .site {
+    width: 35%;
+    height: 120px;
+  }
+  #websiteDesignPage .website-preview .site img {
+    width: 90%;
+    height: 50%;
+  }
+  #websiteDesignPage .website-preview .site a {
+    font-size: 0.6rem;
+    width: 62%;
+    padding: 0.3rem;
+  }
+  #websiteDesignPage .website-preview .four,
+#websiteDesignPage .website-preview .five {
+    display: none;
+  }
+
+  #uiuxDesignPage .uiux-design-header h2 {
+    font-size: 1.2rem;
+  }
+  #uiuxDesignPage .back-to-menu i {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    font-size: 1.5rem;
+  }
+  #uiuxDesignPage .uiux-preview {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+    height: 90%;
+  }
+  #uiuxDesignPage .uiux-preview .uiux {
+    width: 35%;
+    height: 120px;
+  }
+  #uiuxDesignPage .uiux-preview .uiux img {
+    height: 50%;
+  }
+  #uiuxDesignPage .uiux-preview .uiux a {
+    font-size: 0.6rem;
+    width: 60%;
+    padding: 0.3rem;
+  }
+  #uiuxDesignPage .uiux-preview .uiux-three, #uiuxDesignPage .uiux-preview .uiux-four {
+    display: none;
+  }
+
+  #graphicDesignPage .graphic-design-header h2 {
+    font-size: 1.2rem;
+  }
+  #graphicDesignPage .back-to-menu i {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    font-size: 1.5rem;
+  }
+  #graphicDesignPage .graphic-preview {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+    height: 90%;
+  }
+  #graphicDesignPage .graphic-preview .graphic {
+    width: 35%;
+    height: 120px;
+  }
+  #graphicDesignPage .graphic-preview .graphic img {
+    width: 90%;
+    height: 50%;
+  }
+  #graphicDesignPage .graphic-preview .graphic a {
+    font-size: 0.6rem;
+    width: 60%;
+    padding: 0.3rem;
+  }
+  #graphicDesignPage .graphic-preview .logo-one, #graphicDesignPage .graphic-preview .logo-two {
+    display: none;
+  }
+
+  #contact .contact-header {
+    width: 100px;
+    height: 100px;
+  }
+  #contact .contact-header h2 {
+    width: 100px;
+    height: 100px;
+    margin-left: 0.5rem;
+    margin-top: 0.5rem;
+    font-size: 1.4rem;
+  }
+  #contact .back-to-menu i {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    font-size: 1.5rem;
+  }
+  #contact .main-contact .click-message {
+    padding: 0.5rem;
+    margin-top: 5rem;
+    margin-bottom: 0;
+  }
+  #contact .main-contact .click-message img {
+    width: 30px;
+    margin-right: 1rem;
+  }
+  #contact .main-contact .click-message p {
+    font-size: 1rem !important;
+  }
+  #contact .main-contact div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #contact .main-contact div img {
+    width: 30px;
+  }
+  #contact .main-contact div a {
+    margin-left: 1rem;
+    font-size: 0.7rem;
+  }
+
+  #github .github-header {
+    display: none;
+  }
+  #github .back-to-menu i {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    font-size: 1.5rem;
+  }
+  #github .click-message {
+    width: 90%;
+    margin: 1rem auto;
+  }
+  #github .click-message img {
+    width: 30px;
+    margin-right: 0.5rem;
+  }
+  #github .click-message p {
+    font-size: 0.8rem;
+    line-height: 20px;
+  }
+  #github .main-github {
+    height: 70vh;
+    width: 95%;
+  }
+  #github .main-github a {
+    padding: 0.4rem;
+    font-size: 0.6rem;
+    margin: 0.3rem;
+    border: 1px solid rgb(250, 235, 215);
+  }
+}
